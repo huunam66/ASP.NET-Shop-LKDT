@@ -1,0 +1,161 @@
+.profile{
+    width: 120rem;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+.profile .top-f{
+    display: flex;
+    font-size: 1.6rem;
+    padding: 1rem;
+    margin-top: 1.4rem;
+    width: 100%;
+    background-color: #e2e9ef;
+}
+
+.profile .top-f a{
+    text-decoration: none;
+    margin: 0 .6rem;
+    cursor: pointer;
+}
+
+.profile .top-f a:not(.link-bl){
+    color: #9b9fa2 !important;
+}
+
+.link-bl{
+    color: #5b90de !important;
+}
+
+.profile .box-pf{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.profile .box-pf .avt-s{
+    width: 36rem;
+    background-color: #fff;
+    border-radius: .4rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+
+.profile .box-pf .avt-s .pic{
+    width: 24rem;
+    height: 24rem;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    border: .2rem solid #e2e9ef;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile .box-pf .avt-s .pic .camer{
+    font-size: 3.2rem;
+    color: #333;
+    background-color: rgba(0,0,0,0.2);
+    backdrop-filter: blur(.4rem);
+    -webkit-backdrop-filter: blur(.4rem);
+    -moz-backdrop-filter: blur(.4rem);
+    width: 100%;
+    position: absolute;
+    padding-top: .4rem;
+    bottom: -.6rem;
+}
+
+    .profile .box-pf .avt-s .pic .avt {
+        width: 100%;
+        height: 100%;
+        transform: scale(1.1);
+        position: absolute;
+        border-radius: 50%;
+    }
+
+.profile .box-pf .avt-s .name{
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    color: #333;
+}
+
+.profile .box-pf .avt-s .email{
+    font-size: 1.4rem;
+    margin-top: 1rem;
+    color: #9b9fa2;
+}
+
+.profile .box-pf .inf{
+    width: calc(100% - 36rem - 2.4rem);
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: .4rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.profile .box-pf .inf .row-f{
+    padding: 1.4rem 0;
+    border-bottom: .2rem solid #e8e8e8;
+    font-size: 1.4rem;
+}
+
+.profile .box-pf .inf .row-f-e{
+    padding: 0 !important;
+    border-bottom: none !important;
+    font-size: 1.4rem;
+}
+
+.profile .box-pf .inf .row-f:first-child{
+    padding-top: 0;
+}
+
+.profile .box-pf .inf .row-f .title-lf{
+    min-width: 14rem;
+    max-width: 14rem;
+    display: inline-block;
+    font-weight: 500;
+}
+
+.profile .box-pf .inf .row-f .result-rt{
+    color: #7e8183;
+    max-width: calc(100% - 16rem - 2rem);
+    margin-left: 2rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.profile .box-pf .inf .opt-ev{
+    margin-top: 2rem;
+}
+
+.profile .box-pf .inf .opt-ev .btn{
+    padding: 1rem;
+    background-color: #0fa4b8;
+    border-radius: .4rem;
+    font-size: 1.4rem;
+    color: #fff !important;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.profile .box-pf .inf .opt-ev .btn:hover{
+    background-color: #1091a2;
+}
+
+.result-rt-inp{
+    padding: 1.2rem;
+    min-width: calc(100% - 16rem - 2rem);
+    max-width: calc(100% - 16rem - 2rem);
+    color: #333;
+    outline: none;
+    border-bottom: .2rem solid #e8e8e8;
+    font-size: 1.4rem;
+}

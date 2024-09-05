@@ -1,0 +1,166 @@
+﻿@using Nhom.Models.LINQ
+@model List<SAN_PHAM>
+@{
+    int len_model = Model.Count;
+    List<String> Formart_Prices = ViewBag.Formart_Prices;
+    ViewBag.Title = "Sản phẩm";
+    ViewBag.At_Sign = "@";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/Content/css/card.css?v=1" />
+}
+
+@section Scripts{
+    <script async defer src="~/Content/js/card.js"></script>
+}
+
+<section class="row-t-t">
+    <p class="t-t">
+        <a href="~/">Trang chủ</a>
+        &nbsp;/&nbsp;
+        <a href="~/Product">Sản phẩm</a>
+    </p>
+    <p class="t-h">Linh Kiện</p>
+</section>
+
+<section class="row-t-ops">
+    @{
+        String page = ViewBag.page != 1 ? "page=" + ViewBag.page : null;
+        String mod = ViewBag.mod != 0 ? "&mod=" + ViewBag.mod : "";
+        String type = ViewBag.type != "" ? "&type=" + ViewBag.type : "";
+        String p_min_sp = ViewBag.price_min != null ? String.Format(ViewBag.price_min).Split('.')[0] : null;
+        String p_max_sp = ViewBag.price_max != null ? String.Format(ViewBag.price_max).Split('.')[0] : null;
+    }
+    <ul class="t-opts">
+        <li class="item">
+            <p class="fill">
+                <i class="ph ph-funnel"></i>
+                Hiển thị:&nbsp;
+                <span>@ViewBag.mod_text</span>
+            </p>
+            <ol class="dnone">
+                <li>
+                    <a href="/product?@type">
+                        <input type="radio" @(ViewBag.mod == 0 ? "checked" : null) />
+                        Tất cả
+                    </a>
+                </li>
+                <li>
+                    <a href="/product?@type&mod=@p_min_sp">
+                        <input type="radio" @(ViewBag.mod == decimal.Parse(p_min_sp) ? "checked" : null) />
+                        Từ @ViewBag.price_min&nbsp;
+                        <i class="ph ph-arrow-right"></i>
+                        &nbsp; @ViewBag.price_mid
+                    </a>
+                </li>
+                <li>
+                    <a href="/product?@type&mod=@p_max_sp">
+                        <input type="radio" @(ViewBag.mod == decimal.Parse(p_max_sp) ? "checked" : null) />
+                        Từ @ViewBag.price_mid&nbsp;
+                        <i class="ph ph-arrow-right"></i>
+                        &nbsp;  @ViewBag.price_max
+                    </a>
+                </li>
+            </ol>
+        </li>
+        <li class="item">
+            <p class="fill">
+                Hiển thị:&nbsp;
+                <span>@ViewBag.type_show</span>
+                <i class="ph ph-caret-double-down"></i>
+            </p>
+            <ol class="dnone">
+                <li>
+                    <a href="/product?@mod">
+                        <input type="radio"  @(ViewBag.type == "" ? "checked" : null) />
+                        Mặc định
+                    </a>
+                </li>
+                <li>
+                    <a href="/product?type=high@(mod)">
+                        <input type="radio"  @(ViewBag.type == "high" ? "checked" : null) />
+                        Giá thấp đến cao
+                    </a>
+                </li>
+                <li>
+                    <a href="/product?type=low@(mod)">
+                        <input type="radio"  @(ViewBag.type == "low" ? "checked" : null) />
+                        Giá cao đến thấp
+                    </a>
+                </li>
+            </ol>
+        </li>
+    </ul>
+</section>
+
+<section class="card-list">
+    <div class="card-grid">
+        @for (int i = 0; i < len_model; i++)
+        {
+            <a href="~/Product/Details?sp=@Model[i].ID" class="card-grid-item">
+                <figure class="card">
+                    @if (!Model[i].MAU.Equals(""))
+                    {
+                        <p class="atr">@Model[i].MAU</p>
+                    }
+                    <picture>
+                        <img src="~/Content/img/@ViewBag.pic[i]"
+                             alt=""
+                             loading="lazy" />
+                        @if (Model[i].TRANG_THAI != null && !Model[i].TRANG_THAI.Equals("Còn hàng"))
+                        {
+                            <p>@Model[i].TRANG_THAI</p>
+                        }
+                    </picture>
+                    <p class="nm">
+                        @Model[i].TEN
+                    </p>
+                    <p class="pr">@Formart_Prices[i]<span>đ</span></p>
+                </figure>
+            </a>
+        }
+    </div>
+</section>
+
+@if (ViewBag.pages > 1)
+{
+    <div class="f-opt page">
+        @if (ViewBag.page > 1)
+        {
+            <a class="prev-page"
+                href="/product?page=@(ViewBag.page - 1)@type@mod">Trước</a>
+        }
+
+        @{
+            int show_opt_page = 4;
+            if (ViewBag.page >= show_opt_page && ViewBag.page <= ViewBag.pages)
+            {
+                for (int i = ViewBag.page - (show_opt_page - 1); i < ViewBag.page + 1; i++)
+                {
+                    <a class="page-on @(ViewBag.page == i ? "current-page" : null)"
+                        href="/product?page=@i@type@mod">
+                        @i
+                    </a>
+                }
+            }
+            else
+            {
+                show_opt_page = ViewBag.pages < show_opt_page ? (int)ViewBag.pages : show_opt_page;
+                for (int i = 1; i <= show_opt_page; i++)
+                {
+                    <a class="page-on @(ViewBag.page == i ? "current-page" : null)"
+                        href="/product?page=@i@type@mod">
+                        @i
+                    </a>
+                }
+            }
+        }
+
+        @if (ViewBag.page < ViewBag.pages)
+        {
+            <a class="next-page" href="/product?page=@(ViewBag.page + 1)@type@mod">Tiếp</a>
+        }
+    </div>
+}

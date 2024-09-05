@@ -1,0 +1,90 @@
+﻿@using Nhom.Models.LINQ
+@model THONG_TIN_TAI_KHOAN
+@{
+    ViewBag.Title = "Trang cá nhân";
+    ViewBag.At_Sign = "@";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    TAI_KHOAN ac = ViewBag.account;
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/Content/css/profile.css" />
+}
+
+@section Scripts{
+    <script async defer src="~/Content/js/profile.js"></script>
+    <script async defer src="~/Content/js/prodisw.js"></script>
+}
+
+
+<div class="profile">
+    <p class="top-f">
+        <a href="/home" class="link link-bl">Trang chủ</a>
+        /
+        <a href="/profile/edit" class="link">Chỉnh sửa thông tin</a>
+    </p>
+
+    <form class="box-pf" method="post" action="/profile/edit" enctype="multipart/form-data">
+        <div class="avt-s">
+            <div class="pic">
+                <img class="avt" src="~/Content/img/avt/@Model.ANH_DAI_DIEN">
+                <input type="file" class="dnone" name="file">
+                <p class="camer">
+                    <i class='bx bxs-camera'></i>
+                </p>
+            </div>
+        </div>
+
+        <div class="inf">
+            <p class="row-f row-f-e">
+                <label class="title-lf required-flex" title="Bắt buộc">Họ:</label>
+                <input class="result-rt-inp" name="HO" value="@Model.HO" placeholder="Nhập họ" />
+            </p>
+            <p class="row-f row-f-e">
+                <label class="title-lf required-flex" title="Bắt buộc">Tên:</label>
+                <input class="result-rt-inp" name="TEN" value="@Model.TEN" placeholder="Nhập tên" />
+            </p>
+            <p class="row-f row-f-e">
+                <label class="title-lf required-flex" title="Bắt buộc">Số điện thoại:</label>
+                <input class="result-rt-inp" type="tel" name="SDT" value="@Model.SDT" placeholder="Nhập số điện thoại" />
+            </p>
+            <p class="row-f row-f-e">
+                <label class="title-lf required-flex" title="Bắt buộc">Email:</label>
+                <input class="result-rt-inp" type="email" name="EMAIL" value="@ac.EMAIL" placeholder="Nhập email" />
+            </p>
+            <p class="row-f row-f-e">
+                <label class="title-lf required-flex" title="Bắt buộc">Giới tính:</label>
+                <select class="result-rt-inp" name="GIOI_TINH">
+                    <option value="#">Chọn</option>
+                    <option value="Nam" @(Model.GIOI_TINH == "Nam" ? "selected" : "")>Nam</option>
+                    <option value="Nữ" @(Model.GIOI_TINH == "Nữ" ? "selected" : "")>Nữ</option>
+                </select>
+            </p>
+            <p class="row-f row-f-e">
+                <label class="title-lf required-flex" title="Bắt buộc">Tỉnh/Thành:</label>
+                <select class="result-rt-inp provinces" name="TINH_THANH" data-set="@Model.TINH_THANH">
+                    <option value="#">Chọn</option>
+                </select>
+            </p>
+            <p class="row-f row-f-e">
+                <label class="title-lf required-flex" title="Bắt buộc">Quận/Huyện:</label>
+                <select class="result-rt-inp districts" name="QUAN_HUYEN" data-set="@Model.QUAN_HUYEN">
+                    <option value="#">Chọn</option>
+                </select>
+            </p>
+            <p class="row-f row-f-e">
+                <label class="title-lf required-flex" title="Bắt buộc">Phường/Xã:</label>
+                <select class="result-rt-inp wards" name="PHUONG_XA" data-set="@Model.PHUONG_XA">
+                    <option value="#">Chọn</option>
+                </select>
+            </p>
+            <p class="row-f row-f-e">
+                <label class="title-lf required-flex" title="Bắt buộc">Địa chỉ:</label>
+                <input class="result-rt-inp" name="DIA_CHI" value="@Model.DIA_CHI" placeholder="Nhập địa chỉ" />
+            </p>
+            <p class="opt-ev">
+                <button type="button" class="btn edit">Lưu</button>
+            </p>
+        </div>
+    </form>
+</div>

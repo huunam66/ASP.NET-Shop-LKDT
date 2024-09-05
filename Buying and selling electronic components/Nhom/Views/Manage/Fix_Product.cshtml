@@ -1,0 +1,150 @@
+﻿@using Nhom.Models.LINQ
+@model SAN_PHAM
+@{
+    SAN_PHAM p = Model;
+    List<HINH_ANH> aSSESTs = ViewBag.assest;
+    List<CHI_TIET_SAN_PHAM> details = ViewBag.details;
+    List<LOAI_SAN_PHAM> type_lists = ViewBag.type_list;
+    List<String> status = new List<String> { "Còn hàng", "Hết hàng" };
+    ViewBag.Title = "Chỉnh sửa " + p.TEN;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.add_fix_pro = true;
+    ViewBag.At_Sign = "@";
+}
+
+
+
+@section Styles{
+    <link rel="stylesheet" href="~/Content/css/more-prod-site.css?v=1222" />
+}
+
+@section Scripts{
+    <script async defer src="~/Content/js/more-product.js?v=122"></script>
+}
+
+<section>
+    <div class="cont">
+        <p class="title-ab-top" name="fix"><span>cập nhật</span> <span name="name">@p.TEN</span></p>
+        <a href="@Session["page_return_before_del"]" class="back-page">
+            <ion-icon name="return-up-back"></ion-icon>
+            Quay lại
+        </a>
+        <div class="b-ops">
+            <button class="prod-mod rdo">Tùy chỉnh gốc</button>
+            <button class="detail-mod">Tùy chỉnh chi tiết</button>
+        </div>
+        <form id="mch" class="fix">
+            <div class="f1 ff">
+                <input type="hidden" name="id" value="@p.ID" />
+                <div class="item">
+                    <label for="">Tên sản phẩm:</label>
+                    <input type="text" name="tenSP" value="@p.TEN" placeholder="Nhập tên sản phẩm" />
+                </div>
+                <div class="item">
+                    <label for="">Giá:</label>
+                    <input type="number" name="price" value="@p.GIA.ToString().Split(',')[0]" placeholder="Nhập giá" />
+                </div>
+                <div class="item">
+                    <label for="">Kiểu mẫu:</label>
+                    <input type="text" name="attr" value="@p.MAU" placeholder="Nhập kiểu mẫu" />
+                </div>
+                <div class="item">
+                    <label for="">Số lượng:</label>
+                    <input type="number" min="1" max="200" name="sl" value="@p.SO_LUONG" placeholder="Nhập số lượng" />
+                </div>
+                <div class="item">
+                    <label for="">Mã phân loại:</label>
+                    <input type="text" name="code" value="@p.MA_PHAN_LOAI" placeholder="Nhập mã phân loại" />
+                </div>
+                <div class="item">
+                    <label>Tình trạng:</label>
+                    <select name="Status" id="">
+                        <option value="">Chọn tình trạng</option>
+                        @{
+                            String selected = null;
+                            foreach (String tt in status)
+                            {
+                                selected = tt.Equals(p.TRANG_THAI) ? "selected" : null;
+                                <option @selected value="@tt">@tt</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="item">
+                    <label>Loại sản phẩm:</label>
+                    <select name="loaiSP" id="">
+                        <option value="">Chọn loại sản phẩm</option>
+                        @{
+                            selected = null;
+                            foreach (LOAI_SAN_PHAM pt in type_lists)
+                            {
+                                selected = pt.ID == p.LOAI_SAN_PHAM.ID ? "selected" : null;
+                                <option @selected value="@pt.ID">@pt.TEN</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="img-load">
+                    <div class="ip-f">
+                        <!-- <input type="file" class="files" /> -->
+                    </div>
+                    <p class="btn-m-f" title="Thêm ảnh">
+                        <i class="ph ph-plus"></i>
+                    </p>
+                    <ul class="img-s">
+                        @foreach (HINH_ANH assest in aSSESTs)
+                        {
+                            <li>
+                                @if (assest.THU_MUC == null || assest.TEN_FILE == null)
+                                {
+                                    <img src="~/Content/img/sys/no-pictures.png"
+                                         alt="" />
+                                }
+                                else
+                                {
+                                    <img src="~/Content/img/@assest.THU_MUC/@assest.TEN_FILE"
+                                         alt="" />
+                                }
+
+                                <p class="del-img">
+                                    <i class="ph ph-x"></i>
+                                </p>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div class="f2 ff dnone">
+                <p class="btn-m-attr" title="Thêm chi tiết">
+                    <i class="ph ph-plus"></i>
+                </p>
+                <ul class="item">
+                    @foreach (CHI_TIET_SAN_PHAM pd in details)
+                    {
+                        <li class="item-more">
+                            <p class="i1">
+                                <input type="text"
+                                       placeholder="Tên thuộc tính:"
+                                       value="@pd.TIEU_DE"
+                                       name="ttt" />
+                            </p>
+                            <p class="i2">
+                                <input type="text"
+                                       placeholder="Nội dung thuộc tính:"
+                                       value="@pd.NOI_DUNG"
+                                       name="ndtt" />
+                            </p>
+                            <p class="del-item">
+                                <i class="ph ph-x"></i>
+                            </p>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </form>
+        <button form="mch" class="smf" type="submit">Hoàn tất</button>
+    </div>
+</section>
+
+

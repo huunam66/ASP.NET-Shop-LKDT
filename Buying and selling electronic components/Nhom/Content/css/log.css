@@ -1,0 +1,202 @@
+*{
+  padding: 0;
+  margin: 0;
+  transition: .3s all;
+  outline: none;
+  border: none;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 400;
+  letter-spacing: .1rem;
+  color: #555;
+  text-decoration: none;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body{
+  height: 100vh;
+  overflow-x: hidden;
+  background-color: #6a62d2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 97vh;
+}
+
+section{
+  position: relative;
+  width: 50rem;
+  background-color: #fff;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+section .h{
+  position: absolute;
+  font-size: 1.4rem;
+  color: #555;
+  font-weight: 500;
+  top: 1.4rem;
+  right: 1.4rem;
+  border-bottom: .2rem solid transparent;
+}
+
+section .h:hover{
+  border-bottom: .2rem solid #555;
+}
+
+form .f-cont{
+  width: 100%;
+  padding: 4.4rem;
+  box-sizing: border-box;
+}
+
+form .t{
+  font-size: 3.2rem;
+  text-transform: uppercase;
+  margin: 1rem 0 2rem 0;
+}
+
+form .f-log{
+  text-align: center;
+}
+
+form .f-log label{
+  background-color: #fff;
+  display: block;
+  cursor: text;
+  text-align: left !important;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 1.6rem;
+  font-size: 1.6rem;
+  padding: 0 .4rem;
+  text-transform: uppercase;
+  transform: translateY(1.6rem);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.m-lb-t{
+  animation: m-lb-t ease-in .2s forwards;
+}
+
+@keyframes m-lb-t {
+  100%{
+    font-size: 1.2rem;
+    transform: translateY(0);
+  }
+}
+
+form .f-log input{
+  font-size: 1.8rem;
+  padding: .5rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: .2rem solid #eee;
+  z-index: 9999;
+}
+
+form:not(.regis) .f-log .lb-t:nth-child(2){
+  margin-bottom: 3.2rem;
+}
+
+form .f-log .lb-t{
+  margin-bottom: 1.4rem;
+  position: relative;
+}
+
+
+form .f-log .lb-t i{
+  font-size: 2.4rem;
+  color: #333;
+  position: absolute;
+  right: 1rem;
+  top: 60%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+form .f-log .fg{
+  margin: 0 auto;
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  border-bottom: .2rem solid transparent;
+}
+
+
+form .f-log .cb input{
+  width: 1.6rem !important;
+  height: 1.6rem;
+  margin-right: 1rem;
+}
+
+form .f-log .cb{
+  margin-top: 3.2rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.6rem;
+  font-style: italic;
+}
+
+
+form .f-log .fg:hover{
+  border-bottom: .2rem solid #555;
+}
+
+
+form .bt{
+  width: 100%;
+  display: flex;
+}
+
+form .bt a,
+form .bt button{
+  font-size: 1.4rem;
+  font-weight: 500;
+  width: 50%;
+  display: block;
+  padding: 2rem 2.4rem;
+  box-sizing: border-box;
+  text-align: left;
+  background-color: #e8e9ec;
+  color: #555;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+form .bt button{
+  text-align: right;
+  color: #fff;
+  background-color: #2d3b55;
+}
+
+form .bt a:hover{
+  
+  background-color: #d7d6d6;
+}
+
+form .bt button:hover{
+  background-color: #222c40;
+}
+
+tt{
+  display: block;
+  background-color: #fff;
+  font-size: 2rem;
+  color: #333;
+  font-style: italic;
+}

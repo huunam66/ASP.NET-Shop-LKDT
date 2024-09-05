@@ -1,0 +1,108 @@
+﻿@using Nhom.Models.LINQ
+@model List<LOAI_SAN_PHAM>
+@{
+    ViewBag.Title = "More_Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.add_fix_pro = true;
+    ViewBag.At_Sign = "@";
+}
+
+
+@section Styles{
+    <link rel="stylesheet" href="~/Content/css/more-prod-site.css?v=1222" />
+}
+
+@section Scripts{
+    <script async defer src="~/Content/js/more-product.js?v=1232"></script>
+}
+
+<section>
+    <div class="cont">
+        <p class="title-ab-top">thêm mới</p>
+        <a href="@Session["page_return_before_del"]" class="back-page">
+            <ion-icon name="return-up-back"></ion-icon>
+            Quay lại
+        </a>
+        <div class="b-ops">
+            <button class="prod-mod rdo">Tùy chỉnh gốc</button>
+            <button class="detail-mod">Tùy chỉnh chi tiết</button>
+        </div>
+        <form id="mch" class="add">
+            <div class="f1 ff">
+                <input type="hidden" value="mach" />
+                <div class="item">
+                    <label for="">Tên sản phẩm:</label>
+                    <input type="text" name="tenSP" placeholder="Nhập tên sản phẩm" />
+                </div>
+                <div class="item">
+                    <label for="">Giá:</label>
+                    <input type="number" name="price" placeholder="Nhập giá" />
+                </div>
+                <div class="item">
+                    <label for="">Kiểu mẫu:</label>
+                    <input type="text" name="attr" placeholder="Nhập kiểu mẫu" />
+                </div>
+                <div class="item">
+                    <label for="">Số lượng:</label>
+                    <input type="number" min="1" max="200" name="sl" placeholder="Nhập số lượng" />
+                </div>
+                <div class="item">
+                    <label for="">Mã phân loại:</label>
+                    <input type="text" name="code" placeholder="Nhập mã phân loại" />
+                </div>
+                <div class="item">
+                    <label>Loại sản phẩm:</label>
+                    <select name="loaiSP" id="">
+                        <option value="">Chọn loại sản phẩm</option>
+                        @foreach (LOAI_SAN_PHAM p in Model)
+                        {
+                            <option value="@p.ID">@p.TEN</option>
+                        }
+                    </select>
+                </div>
+                <div class="img-load">
+                    <div class="ip-f">
+                        <!-- <input type="file" class="files" /> -->
+                    </div>
+                    <p class="btn-m-f" title="Thêm ảnh">
+                        <i class="ph ph-plus"></i>
+                    </p>
+                    <ul class="img-s">
+                        <!-- <li>
+              <img
+                src="../img/sys/arduino-uno-r3-lgt8f328p-smd-chip-dan-kem-cap-5b4c-1-600x600.jpg"
+                alt=""
+              />
+            </li> -->
+                    </ul>
+                </div>
+            </div>
+
+            <div class="f2 ff dnone">
+                <p class="btn-m-attr" title="Thêm chi tiết">
+                    <i class="ph ph-plus"></i>
+                </p>
+                <ul class="item">
+                    <!-- <li class="item-more">
+                      <p class="i1">
+                        <input
+                          type="text"
+                          placeholder="Tên thuộc tính:"
+                          name="ic"
+                        />
+                      </p>
+                      <p class="i2">
+                        <input
+                          type="text"
+                          placeholder="Nội dung thuộc tính:"
+                          name="ic"
+                        />
+                      </p>
+                    </li> -->
+                </ul>
+            </div>
+        </form>
+        <button form="mch" class="smf" type="submit">Hoàn tất</button>
+    </div>
+</section>
+

@@ -1,0 +1,155 @@
+﻿@using Nhom.Models.LINQ
+@model List<SAN_PHAM>
+@{
+    List<String> pics = ViewBag.pics;
+    List<String> prices = ViewBag.prices;
+    List<LOAI_SAN_PHAM> type_list = ViewBag.type_list;
+    String typing = ViewBag.typing != 1 ? "&typing=" + ViewBag.typing : "";
+    @*List<String> Format_Prices = ViewBag.Format_Prices;*@
+ViewBag.Title = "Product";
+Layout = "~/Views/Shared/_Layout.cshtml";
+ViewBag.At_Sign = "@";
+}
+
+@section Bootstrap{
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+}
+
+
+@section Styles{
+    <link rel="stylesheet" href="~/Content/css/admin.css?v=1222" />
+}
+
+@section Scripts{
+    <script async defer src="~/Content/js/admin-product.js?v=123"></script>
+}
+
+<style>
+    nav .list-item {
+        margin-bottom: 0 !important;
+    }
+</style>
+
+@*<div class="dnone">
+    @foreach (ASSEST sSEST in ViewBag.ASSESTS)
+    {
+        <img src="~/Content/img/@sSEST.folder/@sSEST.File_name"/>
+    }
+</div>*@
+
+<div class="layout">
+    <div class="more">
+        <form action="~/Manage/Product?page=@ViewBag.page" method="get">
+            <select name="typing">
+                @{
+                    <option value="0">Tất cả</option>
+                    String selected = null;
+                    foreach (LOAI_SAN_PHAM pt in type_list)
+                    {
+                        selected = pt.ID == ViewBag.typing ? "selected" : null;
+                        <option @selected value="@pt.ID">@pt.TEN</option>
+                    }
+                }
+            </select>
+            <button type="submit" class="dnone"></button>
+        </form>
+        <p class="search-p">
+            <input placeholder="Tìm kiếm:" type="text" name="search" />
+            <ion-icon name="search"></ion-icon>
+        </p>
+        <a class="ad-add-more" href="/Manage/More_Product">Thêm mới</a>
+    </div>
+    <div class="box-table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="st st-th" scope="col"></th>
+                    <th class="st st-th st-1" scope="col">ID</th>
+                    <th class="name st-th st st-2" scope="col">Sản phấm</th>
+                    <th scope="col">Giá</th>
+                    <th scope="col">Kiểu / Mã</th>
+                    <th scope="col">Số lượng</th>
+                    <th scope="col">Tình trạng</th>
+                    <th scope="col">Loại</th>
+                    <th scope="col">Mã phân bố</th>
+                    <th class="ops" scope="col">Tùy chỉnh</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int c = 0;
+                    for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td class="st" scope="row">
+                                <img class="pics" src="~/Content/img/@pics[i]" />
+                            </td>
+                            <td class="st st-1" name="id" scope="row">@Model[i].ID</td>
+                            <td class="name st st-2" name="name" scope="row">@Model[i].TEN</td>
+                            <td scope="row">@prices[c]</td>
+                            <td scope="row">@Model[i].MAU</td>
+                            <td scope="row">@Model[i].SO_LUONG</td>
+                            <td scope="row">@Model[i].TRANG_THAI</td>
+                            <td scope="row">@Model[i].LOAI_SAN_PHAM.TEN</td>
+                            <td scope="row">@Model[i].MA_PHAN_LOAI</td>
+                            <td class="ops" scope="row">
+                                <a class="fix" href="~/Manage/Fix_Product?id=@Model[i].ID" title="Chỉnh sửa">
+                                    <img src="~/Content/img/sys/update.png" />
+                                </a>
+                                <a class="del" title="Xóa">
+                                    <img src="~/Content/img/sys/delete.png" />
+                                </a>
+                            </td>
+                        </tr>
+                        c++;
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @if (ViewBag.pages > 1)
+    {
+        String type = ViewBag.type > 0 ? "&type=" + ViewBag.type : null;
+        String sp = ViewBag.sp > 0 ? "&sp=" + ViewBag.sp : null;
+        <div class="f-opt page">
+            @if (ViewBag.page > 1)
+            {
+                int page_prev = ViewBag.page - 1;
+                <a class="prev-page"
+                   href="~/Manage/Product?page=@page_prev@typing">Trước</a>
+            }
+
+            @{
+                int show_opt_page = 4;
+                if (ViewBag.page >= show_opt_page && ViewBag.page <= ViewBag.pages)
+                {
+                    for (int i = ViewBag.page - (show_opt_page - 1); i < ViewBag.page + 1; i++)
+                    {
+                        <a class="page-on @(ViewBag.page == i ? "current-page" : null)"
+                           href="~/Manage/Product?page=@i@typing">
+                            @i
+                        </a>
+                    }
+                }
+                else
+                {
+                    show_opt_page = ViewBag.pages < show_opt_page ? (int)ViewBag.pages : show_opt_page;
+                    for (int i = 1; i <= show_opt_page; i++)
+                    {
+                        <a class="page-on  @(ViewBag.page == i ? "current-page" : null)"
+                           href="~/Manage/Product?page=@i@typing">
+                            @i
+                        </a>
+                    }
+                }
+            }
+
+            @if (ViewBag.page < ViewBag.pages)
+            {
+                int page_next = ViewBag.page + 1;
+                <a class="next-page" href="~/Manage/Product?page=@page_next@typing">Tiếp</a>
+            }
+        </div>
+    }
+</div>

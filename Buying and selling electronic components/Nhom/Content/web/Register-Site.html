@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/css/icons.min.css"
+    />
+    <link rel="stylesheet" href="../css/log.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <a class="h" href="#">Home</a>
+        <form class="regis" action="~/register" method="post">
+          <div class="f-cont">
+            <p class="t">register</p>
+            <div class="f-log">
+              <div class="lb-t">
+                <label for="">Email:</label>
+                <input type="email" name="Em" />
+              </div>
+              <div class="lb-t">
+                <label for="">Username:</label>
+                <input type="text" name="Usn" />
+              </div>
+              <div class="lb-t">
+                <label for="">password:</label>
+                <input type="password" name="Pw" />
+                <i class="ph ph-eye"></i>
+                <!-- <i class="ph ph-eye-slash"></i> -->
+              </div>
+              <div class="lb-t">
+                <label for="">confirm password:</label>
+                <input type="password" name="Pw_again" />
+                <i class="ph ph-eye"></i>
+                <!-- <i class="ph ph-eye-slash"></i> -->
+              </div>
+              <p class="cb">
+                <input type="checkbox" />
+                I agree with all policies.
+              </p>
+            </div>
+          </div>
+          <div class="bt">
+            <a href="~/Register">login</a>
+            <button type="submit">sign up</button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <tt>Design by Nguyen Huu Nam #huunam66</tt>
+  </body>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+    integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script src="../js/log-regis.js"></script>
+</html>

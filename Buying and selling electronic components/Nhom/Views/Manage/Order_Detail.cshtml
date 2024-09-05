@@ -1,0 +1,127 @@
+﻿@using Nhom.Models.LINQ
+@model DON_HANG
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.At_Sign = "@";
+    List<String> format_price = ViewBag.format_price;
+    List<String> format_total_price = ViewBag.format_total_price;
+    List<CHI_TIET_DON_HANG> bILL_DETAILs = ViewBag.bill_details;
+    THONG_TIN_DON_HANG bILL_INFOR = ViewBag.bill_infor;
+
+}
+
+
+
+@section Styles{
+    <link rel="stylesheet" href="~/Content/css/detail-bil.css?v=32222" />
+}
+
+@section Scripts{
+    <script async defer src="~/Content/js/order.js?v=1222"></script>
+}
+
+<div class="detail-bil-box">
+    <div class="top-bil-inf">
+        <div class="left-top-bil-inf bil-inf">
+            <p class="row-bil-inf">
+                <span class="title">Mã đơn:</span>
+                <span class="content">@Model.ID</span>
+            </p>
+            <p class="row-bil-inf">
+                <span class="title">Ngày đặt hàng:</span>
+                <span class="content">@(((DateTime)Model.NGAY_DAT_HANG).ToString("dd/MM/yyyy"))</span>
+            </p>
+            @if (Model.TRANG_THAI.ToLower().Equals("đã hủy"))
+            {
+                <p class="row-bil-inf">
+                    <span class="title">Ngày hủy đơn:</span>
+                    <span class="content cl-r">@(((DateTime)Model.NGAY_HUY).ToString("dd/MM/yyyy"))</span>
+                </p>
+            }
+            @if (Model.TRANG_THAI.ToLower().Equals("đã duyệt"))
+            {
+                <p class="row-bil-inf">
+                    <span class="title">Ngày được duyệt:</span>
+                    <span class="content cl-gr">@(((DateTime)Model.NGAY_DUYET).ToString("dd/MM/yyyy"))</span>
+                </p>
+            }
+            <p class="row-bil-inf">
+                <span class="title">Trạng thái:</span>
+                <span class="content @(Model.TRANG_THAI.ToLower().Equals("đang duyệt") || Model.TRANG_THAI.ToLower().Equals("đã hủy") ? "cl-r" : "cl-gr")">@(Model.TRANG_THAI.ToLower().Equals("đang duyệt") ? "Chờ duyệt đơn" : (Model.TRANG_THAI.ToLower().Equals("đã hủy") ? "Đã hủy đơn" : "Đã được duyệt"))</span>
+            </p>
+            <p class="row-bil-inf">
+                <span class="title">Tổng sản phẩm:</span>
+                <span class="content">@ViewBag.sum_prod</span>
+            </p>
+            <p class="row-bil-inf">
+                <span class="title">Tổng thanh toán:</span>
+                <span class="content price">@ViewBag.total</span>
+            </p>
+        </div>
+        <div class="right-top-bil-inf bil-inf">
+            <p class="row-bil-inf">
+                <span class="title">Người đặt:</span>
+                <span class="content">@(bILL_INFOR.HO + " " + bILL_INFOR.TEN)</span>
+            </p>
+            <p class="row-bil-inf">
+                <span class="title">Số điện thoại:</span>
+                <span class="content">@bILL_INFOR.SDT</span>
+            </p>
+            <p class="row-bil-inf">
+                <span class="title">Giới tính:</span>
+                <span class="content">@bILL_INFOR.GIOI_TINH</span>
+            </p>
+            <p class="row-bil-inf">
+                <span class="title">Địa chỉ:</span>
+                <textarea readonly>@(bILL_INFOR.DIA_CHI + ", " + bILL_INFOR.PHUONG_XA + ", " + bILL_INFOR.QUAN_HUYEN + ", " + bILL_INFOR.TINH_THANH)</textarea>
+            </p>
+        </div>
+    </div>
+    <div class="details-site">
+        <div class="details-tab">
+            <table>
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Ảnh</th>
+                        <th>Sản phẩm</th>
+                        <th>Kiểu mẫu</th>
+                        <th>Đơn giá</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < bILL_DETAILs.Count; i++)
+                    {
+                        <tr>
+                            <td class="stt">@(i + 1)</td>
+                            <td class="pic">
+                                <img src="~/Content/img/@bILL_DETAILs[i].HINH_ANH">
+                            </td>
+                            <td class="name">
+                                <a href="/product/details?sp=@bILL_DETAILs[i].SAN_PHAM_ID"
+                                   id-set="@bILL_DETAILs[i].SAN_PHAM_ID">
+                                    @bILL_DETAILs[i].TEN_SAN_PHAM
+                                </a>
+                            </td>
+                            <td class="type">@bILL_DETAILs[i].MAU</td>
+                            <td class="price">@format_price[i]</td>
+                            <td class="counter">@bILL_DETAILs[i].SO_LUONG</td>
+                            <td class="total-pr-c price">@format_total_price[i]</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <p class="bot-opt">
+        @if (Model.TRANG_THAI.ToLower().Equals("đang duyệt"))
+        {
+
+            <button class="canc-bil" set="duyet" id-set="@Model.ID">Duyệt đơn</button>
+        }
+    </p>
+</div>

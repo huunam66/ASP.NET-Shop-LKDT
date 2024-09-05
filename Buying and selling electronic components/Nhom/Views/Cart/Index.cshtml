@@ -1,0 +1,102 @@
+﻿@using Nhom.Models.LINQ
+@model List<GIO_HANG>
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.At_Sign = "@";
+    List<HINH_ANH> aSSESTs = ViewBag.assests;
+    List<String> price_format = ViewBag.price_format;
+    List<String> price_total = ViewBag.price_total;
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/Content/css/cart.css?v=22222" />
+}
+
+@section Scripts{
+    <script async defer src="~/Content/js/cart.js?v=1222"></script>
+}
+
+<div class="cart-cont">
+    <h2 class="tit-cart">
+        <i class='bx bxs-shopping-bag-alt'></i>
+        Giỏ hàng
+    </h2>
+    
+    @if(Model == null || Model.Count == 0)
+    {
+        <div class="empty-cart">
+            <div class="emp">
+                <img src="~/Content/img/sys/empty-box.png"/>
+                <h1>Giỏ hàng trống !</h1>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="layout-child">
+
+            <p class="select-all-cb">
+                <input type="checkbox" name="select-all"/>
+                Chọn tất cả
+            </p>
+
+            <div class="lay-right">
+                <p class="sum-cout">
+                    <span class="tip-lf">Tổng số sản phẩm:</span>
+                    <span class="rest-rt">@ViewBag.sum_count</span>
+                </p>
+                <p class="sum-cout">
+                    <span class="tip-total-mon-lf">Tổng thành tiền:</span>
+                    <span class="total-mon-rt pri">@ViewBag.total</span>
+                </p>
+
+                <p class="btn-buy">
+                    <button name="paying">
+                        <i class='bx bxl-paypal'></i>
+                        Mua hàng
+                    </button>
+                </p>
+            </div>
+
+            <div id="cart-pay" class="lay-left">
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <div class="item">
+                        <input type="checkbox" class="ch-item" name="product_id" value="@Model[i].SAN_PHAM_ID">
+
+                        <div class="pic">
+                            <img src="~/Content/img/@aSSESTs[i].THU_MUC/@aSSESTs[i].TEN_FILE" loading="lazy"/>
+                        </div>
+
+                        <div class="top">
+                            <div class="top-content">
+                                <p class="name-site">
+                                    <a href="#" class="name id" id-set="@Model[i].SAN_PHAM_ID">@Model[i].SAN_PHAM.TEN</a>
+                                    <span class="type">@Model[i].SAN_PHAM.MAU</span>
+                                    <span class="in-stock">@Model[i].SAN_PHAM.TRANG_THAI</span>
+                                </p>
+                                <p class="price">
+                                    <span class="tit">Đơn giá</span>
+                                    <span class="pri dg" data-price="@Model[i].SAN_PHAM.GIA">@price_format[i]</span>
+                                </p>
+                                <p class="counter">
+                                    <span class="tit">Số lượng</span>
+                                    <input type="number" name="soluong" min="1" max="@Model[i].SAN_PHAM.SO_LUONG" value="@Model[i].SO_LUONG">
+                                </p>
+                                <p class="total">
+                                    <span class="tit">Tổng tiền</span>
+                                    <span class="pri">@price_total[i]</span>
+                                </p>
+                            </div>
+                            <div class="btn-are">
+                                @*<button class="edit-item" id-set="@Model[i].ID_PRODUCT">Thay đổi</button>*@
+                                <button class="del-item" id-set="@Model[i].SAN_PHAM_ID">Xóa bỏ</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>

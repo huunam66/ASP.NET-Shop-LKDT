@@ -1,0 +1,782 @@
+.succinct .prod{
+  right: -4rem;
+}
+
+.succinct .bxs-objects-horizontal-left{
+  font-size: 3.2rem;
+  cursor: pointer;
+}
+
+.nav-list .nav-item{
+  display: flex;
+  align-items: center;
+}
+
+.sect-1 .container{
+  position: relative;
+  width: 100%;
+  padding-bottom: 50%;
+  /* height: var(--height-cs1) !important; */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  cursor: grab;
+}
+
+.sect-1 .container:active{
+  cursor: grabbing;
+}
+
+.sect-1 .container::before{
+  content: "";
+  width: 80%;
+  border-top: 0.1rem solid #eee;
+  position: absolute;
+  top:0;
+  z-index: 3;
+}
+
+.sect-1 .container::after{
+  content: "";
+  width: 5rem;
+  border-top: 0.6rem solid #b17a29;
+  position: absolute;
+  bottom: 4rem;
+  z-index: 99;
+}
+
+.sect-1 .container .ct{
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  height: 100%;
+  z-index: 9;
+}
+
+.sect-1 .container .tit{
+  position: absolute;
+  top: 15%;
+  left: 17%;
+  text-align: center;
+  text-transform: uppercase;
+  z-index: 999;
+}
+
+.sect-1 .container .tit::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 3.2rem);
+  z-index: 999;
+}
+
+
+.sect-1 .container .tit .t{
+  position: relative;
+  padding: 1rem;
+}
+
+.sect-1 .container .tit .t::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.sect-1 .container .tit h1{
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.1rem;
+}
+
+.sect-1 .container .tit p{
+  font-size: 2.4rem;
+  color: #333;
+  margin-bottom: 3.2rem;
+  letter-spacing: 0.1rem;
+}
+
+.sect-1 .container .tit a{
+  position: relative;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  background-color: #fff;
+  color: #333;
+  z-index: 9999;
+}
+
+.sect-1 .container .tit a:hover{
+  background-color: #eee;
+}
+
+.sect-1 .bg-abs{
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/sys/Phong-Khach-costal2-24-17723.jpg");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: 0 62%;
+  /* transition: all .7s !important; */
+}
+
+.sect-1 .bg-abs:hover{
+  transform: scale(1.1);
+}
+
+
+.same-2-3{
+  padding: 2.4rem 0;
+}
+
+.same-2-3 .container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.same-2-3 .container .box{
+  position: relative;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.6rem; 
+}
+
+
+.same-2-3 .container .box .ct{
+  position: absolute;
+  z-index: 999;
+}
+
+
+.same-2-3 .container .box .pic{
+  width: 100%;
+  height: 100%;
+  border-radius: 1.2rem;
+  overflow: hidden;
+}
+
+
+.same-2-3 .container .box .ct h1{
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 3.2rem;
+  color: #fff;
+  padding: 0 3.2rem;
+  letter-spacing: 0.1rem;
+}
+
+
+.same-2-3 .container .box .ct::after{
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -5%;
+  width: 100%;
+  height: 100%;
+  padding: 2.4rem;
+}
+
+.same-2-3 .container .box .ct a{
+  background-color: #fff;
+  color: #333;
+  font-size: 1.6rem;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 999;
+}
+
+.same-2-3 .container .box .ct a:hover{
+  background-color: #eee;
+}
+
+.same-2-3 .container .box::after{
+  content: "";
+  padding-top: 100%;
+}
+
+
+.same-2-3 .container .box img{
+  width: 100%;
+  height: 100%;
+  transition: all .7s !important;
+}
+
+.same-2-3 .container .box img:hover{
+  transform: scale(1.1);
+}
+
+
+.sect-3 .container .box img{
+  transform: scale(1) !important;
+}
+
+
+.sect-3 .container .box{
+  padding: 1rem 0.4rem;
+}
+
+.sect-3 .container .box .ct {
+  width: 50%;
+}
+
+.sect-3 .container .box .ct h1{
+  font-size: 3.2rem;
+  color: #333;
+  margin-bottom: 1.4rem;
+  letter-spacing: -0.1rem;
+  line-height: 1.4;
+}
+
+.sect-3 .container .box .ct p{
+  font-size: 1.8rem;
+  color: #333;
+  letter-spacing: 0.1rem;
+  line-height: 1.6;
+  margin-bottom: 3.2rem;
+}
+
+
+.sect-3 .container .box .ct a{
+  font-size: 1.6rem;
+  font-weight: 500;
+  padding: 1rem 2rem;
+  border: 2px solid #7a9c59;
+  color: #7a9c59;
+}
+
+
+.sect-3 .container .box .ct a:hover{
+  background-color: #7a9c59;
+  color: #fff;
+}
+
+/* .sect-3 .container .box:first-child {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 8rem;
+} */
+
+
+
+
+.sect-4{
+  padding: 4.8rem 0;
+}
+
+.sect-4 .container{
+  display: grid;
+  grid-template-columns: 2fr 0.5fr 1fr 1.5fr;
+  gap: 4.4rem;
+}
+
+.sect-4 .container .box-ct{
+  padding: 0.5rem 0;
+}
+
+.sect-4 .container .box-ct .ct p:nth-child(1){
+  font-size: 3.2rem;
+  line-height: 1.2;
+  color: #333;
+  margin-bottom: 1.4rem;
+  letter-spacing: -0.1rem;
+}
+
+.sect-4 .container .box-ct .ct p:nth-child(2){
+  font-size: 1.6rem;
+  color: #555;
+  letter-spacing: 0.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.6rem;
+}
+
+.sect-4 .container .box-ct .ct a{
+  color: #9d9d9d;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.2rem;
+  border: 2px solid transparent;
+  border-bottom: 2px solid #9d9d9d;
+}
+
+.sect-4 .container .box-ct .ct a:hover{
+  border: 2px solid #9d9d9d;
+}
+
+.sect-4 .container .box-img{
+  overflow: hidden;
+}
+
+.sect-4 .container .box-img img{
+  width: 100%;
+  height: 100%;
+  transition: all .7s;
+}
+
+.sect-4 .container .box-img img:hover{
+  transform: scale(1.1);
+}
+
+
+/*=============== Không gian phòng khách ===============*/
+
+.sect-4 .container .box-img:nth-child(5){
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+}
+
+.sect-4 .container .box-ct:nth-child(1){
+  grid-column: -2 / -3;
+  grid-row: 1 / 2;
+}
+
+
+/*=============== Đồ trang trí ===============*/
+
+.sect-4 .container .box-img:nth-child(6){
+  grid-column: 4 / 5;
+  grid-row: 1 / 3;
+  height: 85%;
+}
+
+.sect-4 .container .box-ct:nth-child(2){
+  grid-column: -2 / -3;
+  grid-row: 2 / 3;
+  padding-left: 20%;
+}
+
+
+/*=============== Không gian phòng ngủ ===============*/
+
+.sect-4 .container .box-img:nth-child(7){
+  grid-column: 1 / 2;
+  grid-row: 3 / 5;
+  height: 65%;
+  width: 80%;
+  align-self: center;
+  margin-left: calc(20% - 2rem);
+}
+
+.sect-4 .container .box-ct:nth-child(3){
+  grid-column: 2 / 3;
+  grid-row: 3 / 5;
+  align-self: center;
+}
+
+
+/*=============== Không gian phòng ăn ===============*/
+
+.sect-4 .container .box-img:nth-child(8){
+  grid-column: 3 / 5;
+  grid-row: 3 / 4;
+  width: 75%;
+  height: 100%;
+  justify-self: center;
+  margin-top: -2%;
+}
+
+.sect-4 .container .box-ct:nth-child(4){
+  grid-column: 3 / 5;
+  grid-row: 4 / 5;
+  width: 75%;
+  justify-self: center;
+}
+
+
+
+
+.sect-5{
+  padding: 3.2rem;
+}
+
+.sect-5 .container{
+  max-width: 130rem;
+  margin: auto;
+}
+
+.sect-5 .container .tit{
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+}
+
+.sect-5 .container .tit p{
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 1rem 0;
+  border-bottom: 2px solid #eee;
+  margin-right: 2rem;
+}
+
+.sect-5 .container .tit a{
+  padding: 0 0.8rem;
+  font-size: 1.6rem;
+  color: #888;
+  display: inline-flex;
+}
+
+
+.sect-5 .container .box{
+  margin: 3.2rem 0;
+}
+
+.sect-5 .container .grid-box{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4.4rem 1.6rem;
+}
+
+.sect-5 .container .grid-box .grid-box-item{
+  position: relative;
+  height: var(--height-scgr-5);
+}
+
+
+.sect-5 .container .grid-box .card{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1.4rem;
+  border: 2px solid transparent;
+  overflow: hidden;
+}
+
+
+.sect-5 .container .grid-box .card:hover{
+  border: 2px solid #eee;
+  top: -1rem;
+}
+
+.sect-5 .container .card .c-in .pic{
+  position: relative;
+  padding-bottom: 65%;
+  /* height: var(--height-pic); */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+
+
+.hide-an{
+  animation: ani-hide-img ease .2s forwards;
+}
+
+.show-an{
+  animation: ani-show-img linear .4s forwards;
+}
+
+.sect-5 .container .card .c-in img{
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+@keyframes ani-hide-img {
+  0%{
+    display: flex;
+  }
+  50%{
+    opacity: 0.5;
+  }
+  100%{
+    opacity: 0;
+    display: none;
+  }
+}
+
+
+@keyframes ani-show-img {
+  0%{
+    display: none;
+    opacity: 0;
+  }
+  50%{
+    opacity: 0.5;
+  }
+  100%{
+    opacity: 1;
+    display: flex;
+  }
+}
+
+
+.sect-5 .container .card .c-in .tit-c{
+  max-width: 100%;
+  font-size: 1.6rem;
+  height: 3.2rem !important;
+  line-height: 1.2;
+  padding: 1rem 0;
+  color: #555;
+  border-bottom: 1px solid #eee;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 2.4rem;
+}
+
+.sect-5 .container .card .c-in .heart-prc{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3.2rem;
+}
+
+.sect-5 .container .card .c-in .heart-prc ion-icon{
+  font-size: 1.8rem;
+  color: #555;
+}
+
+.sect-5 .container .card .c-in .heart-prc p{
+  flex: 1;
+  text-align: end;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.sect-5 .container .card .c-in .heart-prc p span{
+  text-decoration: underline;
+}
+
+.sect-5 .container .card .btn-link-more{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+.sect-5 .container .card .btn-link-more button,
+.sect-5 .container .card .btn-link-more a{
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  padding: 1rem 1.4rem;
+  text-transform: uppercase;
+  border: none;
+  border: 1px solid #333;
+  cursor: pointer;
+}
+
+
+
+.sect-5 .container .card .btn-link-more button{
+  color: #333;
+  background-color: #fff;
+}
+
+.sect-5 .container .card .btn-link-more a{
+  background-color: #333;
+  color: #fff;
+}
+
+
+.sect-5 .container .card .btn-link-more button:hover{
+  background-color: #333;
+  color: #fff;
+}
+
+
+/* ============== nav mobile ==============*/
+
+.mb {
+  /* transform: translateX(-100%); */
+}
+
+.mb .navbar{
+  position: fixed;
+  width: 100%;
+  right: -100%;
+  top: 0;
+  background-color: rgba(241, 214, 173, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mb .navbar .nav-list{
+  width: 50%;
+  position: relative;
+  display: block;
+  padding: 2rem;
+}
+
+
+.mb .navbar .nav-item p{
+  font-size: 2.4rem;
+  color: #555;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.mb .navbar .nav-item a{
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: #555;
+}
+
+
+.mb .navbar .nav-item p:hover,
+.mb .navbar .nav-item a:hover{
+  text-decoration: underline;
+  color: #b17a29;
+}
+
+.mb .navbar .nav-item{
+  margin: 3.2rem 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mb .navbar .nav-item .more,
+.mb .navbar .nav-item .more{
+  display: block;
+  padding: 4rem 0.6rem;
+  transform: rotate(-90deg);
+  font-size: 2.4rem;
+  position: absolute;
+  top: -1.4rem;
+  cursor: pointer;
+}
+
+.nav-more{
+  animation: ani-more-nav .7s forwards;
+}
+
+.mb .navbar .nav-item .prod{
+  display: none;
+  position: unset;
+  background-color: inherit;
+  box-shadow: none; 
+  overflow: hidden;
+  /* height: 0; */
+}
+
+.mb .navbar .nav-item .prod li{
+  padding: 2rem;
+  border: none;
+  border-bottom: 0.2rem solid #eee !important;
+  background-color: #f1d6ad
+
+}
+
+.mb .navbar .nav-item .prod li:first-child{
+  margin-top: 3.2rem;
+}
+
+.mb .navbar .nav-item .prod li:hover{
+  background-color: #eee;
+}
+
+.mb .navbar .nav-item .prod a:hover{
+  background-color: transparent !important;
+}
+
+.mb .navbar .nav-item .prod a{
+  display: inline;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.mb .navbar .log{
+  list-style: none;
+  width: 100%;
+}
+
+
+
+.mb .navbar .us{
+  margin: 4.4rem 0 2.4rem 0;
+}
+
+.mb .navbar .us p{
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.mb .navbar .user{
+  font-size: 5.2rem;
+  padding: 1.2rem;
+  border: 1px solid #c19554;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #eee;
+  color: #b17a29;
+}
+
+.mb .navbar .go{
+  /* display: grid; */
+  display: flex;
+  flex-direction: column;
+  /* grid-template-columns: minmax(calc(100% / 3), 100%); */
+  /* grid-auto-flow: column; */
+  align-items: center;
+  overflow: auto;
+  max-width: 50%;
+  max-height: 20rem;
+  margin: auto;
+  padding: 1rem;
+  border: 1px solid #eee;
+  gap: 1rem;
+}
+
+.mb .navbar .go a{
+  width: 100%;
+  padding: 1.2rem 1rem;
+  box-sizing: border-box;
+  color: #555;
+  background-color: #eee;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.icon-o-cl {
+  margin-left: 1.6rem;
+  margin-right: -0.4rem;
+  cursor: pointer;
+  /* animation: ani-icon-o-cl-op-nav .5s forwards; */
+}
+
+.icon-o-cl span{
+  position: sticky;
+  display: inline-block;
+  padding: 1rem;
+  border-top: 0.5rem solid #555;
+  border-right: 0.5rem solid #555;
+  transform: rotate(-135deg);
+}
+
+.icon-o-cl span:last-child{
+  left: -2rem;
+}
+
+@keyframes ani-icon-o-cl-op-nav{
+  50%{
+    transform: rotate(180deg);
+  }
+  100%{
+    transform: translateX(20rem) rotate(180deg);
+  }
+}

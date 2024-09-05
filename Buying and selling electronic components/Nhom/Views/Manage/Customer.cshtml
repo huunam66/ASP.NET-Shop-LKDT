@@ -1,0 +1,88 @@
+﻿@using Nhom.Models.LINQ
+@model List<THONG_TIN_TAI_KHOAN>
+@{
+    ViewBag.Title = "QL Khách hàng";
+    ViewBag.At_Sign = "@";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/Content/css/order.css?v=222" />
+}
+
+@section Scripts{
+}
+
+
+<div class="order-box">
+    <div class="tab">
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Mã khách hàng</th>
+                    <th>Họ tên</th>
+                    <th>Số điện thoại</th>
+                    <th>Giới tính</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td>@Model[i].ID</td>
+                        <td>@Model[i].HO&nbsp;@Model[i].TEN</td>
+                        <td>@Model[i].SDT</td>
+                        <td>@Model[i].GIOI_TINH</td>
+                        <td class="opt-cl">
+                            <a href="/manage/customer_detail/@Model[i].ID">Chi tiết</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @if (ViewBag.pages > 1)
+    {
+        <div class="f-opt page">
+            @if (ViewBag.page > 1)
+            {
+                <a class="prev-page"
+                   href="/manage/customer?page=@(ViewBag.page - 1)">Trước</a>
+            }
+
+            @{
+                int show_opt_page = 4;
+                if (ViewBag.page >= show_opt_page && ViewBag.page <= ViewBag.pages)
+                {
+                    for (int i = ViewBag.page - (show_opt_page - 1); i < ViewBag.page + 1; i++)
+                    {
+                        <a class="page-on @(ViewBag.page == i ? "current-page" : null)"
+                           href="/manage/customer?page=@i">
+                            @i
+                        </a>
+                    }
+                }
+                else
+                {
+                    show_opt_page = ViewBag.pages < show_opt_page ? (int)ViewBag.pages : show_opt_page;
+                    for (int i = 1; i <= show_opt_page; i++)
+                    {
+                        <a class="page-on  @(ViewBag.page == i ? "current-page" : null)"
+                           href="/manage/customer?page=@i">
+                            @i
+                        </a>
+                    }
+                }
+            }
+
+            @if (ViewBag.page < ViewBag.pages)
+            {
+                <a class="next-page" href="/manage/customer?page=@(ViewBag.page + 1)">Tiếp</a>
+            }
+        </div>
+    }
+</div>

@@ -1,0 +1,33 @@
+.page-of{
+  display: flex;
+  justify-content: center;
+  margin: 9.6rem 0;
+}
+
+.page-of .list-page{
+  display: flex;
+  list-style: none;
+}
+
+.page-of .list-page .page-item{
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  background-color: transparent;
+  text-align: center;
+  line-height: 2.4rem;
+  border: 1px solid #333;
+  margin: 0 .6rem;
+  cursor: pointer;
+}
+
+.selected-page{
+  background-color: #333 !important;
+  color: #fff !important;
+}
+
+.page-of .list-page .page-item:hover{
+  background-color: #333;
+  color: #fff;
+}

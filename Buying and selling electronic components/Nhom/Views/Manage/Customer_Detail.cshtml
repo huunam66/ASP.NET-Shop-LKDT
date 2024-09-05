@@ -1,0 +1,75 @@
+﻿@using Nhom.Models.LINQ
+@model THONG_TIN_TAI_KHOAN
+@{
+    ViewBag.Title = "Thông tin khách hàng";
+    ViewBag.At_Sign = "@";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/Content/css/profile.css" />
+}
+
+@section Scripts{
+}
+
+
+<div class="profile">
+
+    <div class="box-pf">
+        <div class="avt-s">
+            <div class="pic">
+                <img class="avt" src="~/Content/img/avt/@Model.ANH_DAI_DIEN">
+            </div>
+            <p class="name">@(Model.HO + " " + Model.TEN)</p>
+            <p class="email">@Model.TAI_KHOAN.EMAIL</p>
+        </div>
+
+        <div class="inf">
+            <p class="row-f">
+                <span class="title-lf">Họ tên:</span>
+                <span class="result-rt">@(Model.HO + " " + Model.TEN)</span>
+            </p>
+            <p class="row-f">
+                <span class="title-lf">Số điện thoại:</span>
+                <span class="result-rt">@Model.SDT</span>
+            </p>
+            <p class="row-f">
+                <span class="title-lf">Email:</span>
+                <span class="result-rt">@Model.TAI_KHOAN.EMAIL</span>
+            </p>
+            <p class="row-f">
+                <span class="title-lf">Giới tính:</span>
+                <span class="result-rt">@Model.GIOI_TINH</span>
+            </p>
+            <p class="row-f">
+                <span class="title-lf">Địa chỉ:</span>
+                <span class="result-rt">@Model.DIA_CHI</span>
+            </p>
+            <p class="row-f">
+                <span class="title-lf">Phường/Xã:</span>
+                <span class="result-rt">@Model.PHUONG_XA</span>
+            </p>
+            <p class="row-f">
+                <span class="title-lf">Quận/Huyện:</span>
+                <span class="result-rt">@Model.QUAN_HUYEN</span>
+            </p>
+            <p class="row-f">
+                <span class="title-lf">Tỉnh/Thành:</span>
+                <span class="result-rt">@Model.TINH_THANH</span>
+            </p>
+            <p class="row-f">
+                <span class="title-lf">Số lượng hóa đơn:</span>
+                <span class="result-rt">@ViewBag.count_bill</span>
+            </p>
+            <p class="row-f">
+                <span class="title-lf">Số lượng sản phẩm:</span>
+                <span class="result-rt">@ViewBag.count_sanpham</span>
+            </p>
+            <p class="row-f">
+                <span class="title-lf">Tổng giá trị:</span>
+                <span class="result-rt price">@ViewBag.count_giatri</span>
+            </p>
+        </div>
+    </div>
+</div>

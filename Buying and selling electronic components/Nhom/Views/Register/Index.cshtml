@@ -1,0 +1,55 @@
+﻿@using Nhom.Models.LINQ
+@model TAI_KHOAN
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutPage_Log.cshtml";
+}
+
+<form class="regis" action="~/Register" method="post">
+    <div class="f-cont">
+        <p class="t">đăng ký thông tin</p>
+        <div class="f-log">
+            <div class="lb-t">
+                <label for="">Email:</label>
+                <input type="email" name="EMAIL" value="@Model.EMAIL"/>
+                @if (ViewBag.Err_email != null)
+                {
+                    <p style="color: red; font-size: 1.4rem; margin-top: .4rem; text-align: left ">@ViewBag.Err_email</p>
+                }
+            </div>
+            <div class="lb-t">
+                <label for="">tên tài khoản:</label>
+                <input type="text" name="TEN_TAI_KHOAN" value="@Model.TEN_TAI_KHOAN"/>
+                @if (ViewBag.Err_us != null)
+                {
+                    <p style="color: red; font-size: 1.4rem; margin-top: .4rem; text-align: left ">@ViewBag.Err_us</p>
+                }
+            </div>
+            <div class="lb-t">
+                <label for="">mật khẩu:</label>
+                <input type="password" name="MAT_KHAU" value="@Model.MAT_KHAU"/>
+                <i class="ph ph-eye"></i>
+                <!-- <i class="ph ph-eye-slash"></i> -->
+            </div>
+            <div class="lb-t">
+                <label for="">nhập lại mật khẩu:</label>
+                <input type="password" name="Pw_again" />
+                <i class="ph ph-eye"></i>
+                <!-- <i class="ph ph-eye-slash"></i> -->
+                @if (ViewBag.Err_pw != null)
+                {
+                    <p style="color: red; font-size: 1.4rem; margin-top: .4rem; text-align: left">@ViewBag.Err_pw</p>
+                }
+            </div>
+            <p class="cb">
+                <input type="checkbox" />
+                Tôi đồng ý với tất cả chính sách.
+            </p>
+        </div>
+    </div>
+    <div class="bt">
+        <a href="~/Login">đăng nhập</a>
+        <button type="submit">đăng ký</button>
+    </div>
+</form>
+

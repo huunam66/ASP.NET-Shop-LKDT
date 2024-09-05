@@ -1,0 +1,101 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Rubik", sans-serif;
+  transition: all .3s;
+}
+
+.sticky header{
+  position: sticky !important;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+}
+
+.overflow-hd{
+  overflow: hidden;
+}
+
+
+@keyframes ani-open-cart{
+  100%{
+    right: 0;
+  }
+}
+
+.move-to{
+  transform: translateX(var(--move-x)) translateY(var(--move-y));
+  transition: all .0s !important;
+}
+
+.rez-h {
+  height: var(--height-cs1) !important;
+}
+
+*:focus{
+  outline: none;
+  box-shadow: 0 0 0 0.6rem rgba(241, 214, 173, 0.5);
+}
+
+.lazy-loading-03{
+  animation: ani-loading .3s ease;
+}
+
+.lazy-loading-04{
+  animation: ani-loading .4s ease;
+}
+
+.lazy-loading-05{
+  animation: ani-loading .5s ease;
+}
+
+@keyframes ani-loading {
+  0%{
+    opacity: .1;
+  }
+}
+
+html{
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+tt{
+  font-size: 2rem;
+  font-style: italic;
+  color: #555;
+}
+
+a{
+  text-decoration: none;
+}
+
+section, div{
+  display: block;
+}
+
+body{
+  overflow-x: hidden;
+  line-height: 1;
+  font-weight: 400;
+}
+
+p::first-letter,
+a::first-letter,
+button::first-letter{
+  text-transform: uppercase;
+}
+
+button{
+  background: none;
+  border: none;
+}
+
+.hidden{
+  visibility: hidden;
+}
+
+.visible{
+  visibility: visible;
+}

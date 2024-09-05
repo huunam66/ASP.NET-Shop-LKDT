@@ -1,0 +1,441 @@
+
+
+.template .box{
+    margin-top: unset !important;
+}
+
+
+.cart-cont {
+    display: block;
+    background-color: #fff;
+    flex: 1;
+    min-height: 100vh;
+}
+
+.del-item:hover{
+    color: red !important;
+    border-bottom: .2rem solid red !important;
+}
+
+.cart-cont .tit-cart{
+    text-transform: uppercase;
+    font-size: 2.8rem;
+    color: #333;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+    margin: 0 !important;
+    position: sticky;
+    top: 0;
+    background-color: #fff !important;
+    border-bottom: .1rem solid #c6c6c6;
+    z-index: 999999999;
+    box-shadow: rgba(168, 168, 168, 0.5) 0px 10px 20px;
+}
+
+.cart-cont .tit-cart i{
+    margin-right: 1rem;
+}
+
+.layout-child{
+    position: relative;
+    min-height: 100vh;
+    padding: 3.2rem;
+    padding-top: 7.2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+.layout-child .lay-left{
+    display: block;
+    width: 65%;
+}
+
+.select-all-cb{
+    position: absolute;
+    top: 3.2rem;
+    left: 3.2rem;
+    display: flex;
+    align-items: center;
+    color: #333;
+    font-size: 1.6rem;
+    border-bottom: .2rem solid #333;
+    padding: 0 .6rem;
+    padding-bottom: .4rem;
+}
+
+.select-all-cb input[type=checkbox]{
+    width: 1.8em;
+    height: 1.8rem;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.cart-cont .lay-right {
+    width: 30%;
+    position: sticky;
+    top: 10rem;
+    height: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+}
+
+.cart-cont .lay-right .pri::after{
+    content: ' đ';
+    text-transform: lowercase !important;
+    border-bottom: .2rem solid #333;
+    margin-left: .4rem;
+}
+
+.cart-cont .lay-right .sum-cout{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+
+.cart-cont .lay-right .sum-cout span{
+    color: #333;
+    font-size: 1.8rem;
+}
+
+
+.cart-cont .lay-right .btn-buy{
+    text-align: center;
+    margin-top: 4.4rem;
+    position: sticky;
+    top: 0  ;
+}
+
+.cart-cont .lay-right .btn-buy button{
+    background-color: #f3e24b;
+    color: #333;
+    font-weight: 500;
+    font-size: 2rem;
+    padding: 1rem 0;
+    width: 60%;
+    cursor: pointer;
+}
+
+    .cart-cont .lay-right .btn-buy button:hover {
+        background-color: #e7cf04;
+    }                                                                           
+
+.layout-child .lay-left .item{
+    display: flex;
+    padding: 2rem 0;
+    border-top: .2rem solid #c6c6c6;
+}
+
+
+.layout-child .lay-left .item .pic{
+    width: 16rem;
+    height: 16rem;
+}
+
+
+.layout-child .lay-left .item input[type=checkbox]{
+    width: 1.8rem;
+    height: 1.8rem;
+    cursor: pointer;
+    margin: auto 1rem; 
+}
+
+    .layout-child .lay-left .item .pic img {
+        max-width: 100%;
+        height: 100%;
+        margin: auto;
+    }
+
+.layout-child .lay-left .item .top{
+    flex: 1;
+    margin-left: 1rem;
+    position: relative;
+}
+
+.layout-child .lay-left .item .top .top-content{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: auto;
+}
+
+.layout-child .lay-left .item .top .top-content input[type=number]{
+    font-size: 1.6rem;
+    color: #333;
+    padding: .4rem;
+    border: .1rem solid #c6c6c6;
+    width: 80%;
+    margin-top: .5rem;
+}
+
+.layout-child .lay-left .item .top .name-site{
+    width: 40%;
+}
+
+.layout-child .lay-left .item .top .name-site .name{
+    width: 100%;
+    font-size: 1.8rem;
+    color: #333;
+    display: -webkit-box;
+    max-height: 4.4rem;
+    white-space: wrap;
+    line-height: 1.2;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+
+.layout-child .lay-left .item .top .name-site .in-stock,
+.layout-child .lay-left .item .top .name-site .type{
+    font-size: 1.6rem;
+    display: block;
+    margin-top: .6rem;
+    color: #a5a5a5;
+}
+
+.layout-child .lay-left .item .top .price{
+    width: 14rem;
+}
+
+.layout-child .lay-left .item .top .counter{
+    width: 10rem;
+}
+
+.layout-child .lay-left .item .top .total{
+    width: 16rem;
+}
+
+.layout-child .lay-left .item .top .tit{
+    font-weight: 500;
+    font-size: 1.8rem;
+    color: #333;
+    display: block;
+}
+
+.layout-child .lay-left .item .top .pri{
+    font-size: 1.6rem;
+    color: #333;
+    margin-top: 1rem;
+    display: block;
+}
+
+.layout-child .lay-left .item .top .pri::after{
+    content: ' đ';
+    margin-left: .4rem;
+    border-bottom: .2rem solid #333;
+}
+
+.dg{
+    font-weight: 500;
+}
+
+.layout-child .lay-left .item .top .btn-are{
+    position: absolute;
+    bottom: 0;
+}
+
+.layout-child .lay-left .item .top .btn-are button{
+    cursor: pointer;
+    margin: 0 1rem;
+    font-size: 1.6rem;
+    color: #333;
+    background-color: transparent;
+    border: .2rem solid transparent;
+    padding-bottom: .4rem;
+}
+
+
+.layout-child .lay-left .item .top .btn-are button:hover{
+    border-bottom: .2rem solid #333;
+}
+
+
+.cart-cont .inf {
+    margin-bottom: 3.2rem;
+    max-height: 50rem;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.cart-cont .inf::-webkit-scrollbar {
+    width: .6rem;
+    border-radius: 5rem;
+    margin-left: .4rem;
+}
+
+
+    .cart-cont .inf::-webkit-scrollbar-thumb {
+        background-color: #aabcd8;
+        border-radius: 5rem;
+    }
+
+.cart-cont .fn-ln-d {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-cont .fn-ln-d .fn-ln{
+    width: 48%;
+}
+
+.cart-cont label {
+    display: block;
+    font-size: 1.4rem;
+    color: #333;
+    margin-top: .8rem;
+    margin-bottom: .4rem;
+    position: relative;
+}
+
+.cart-cont label:hover:before {
+    content: 'Bắt buộc';
+    font-size: 1.2rem;
+    color: #fff;
+    padding: .4rem .8rem;
+    background-color: #333;
+    position: absolute;
+    right: 0;
+}
+
+.cart-cont input,
+.cart-cont select{
+    width: 100%;
+    padding: .6rem;
+    font-size: 1.6rem;
+    color: #333;
+    outline: none;
+    border: .1rem solid #c6c6c6;
+    border-radius: .1rem;
+}
+
+.empty-cart{
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-cart .emp{
+    display: block;
+}
+
+.empty-cart .emp img{
+    width: 28rem;
+    height: 28rem;
+    margin-bottom: 2rem;
+}
+
+.empty-cart .emp h1{
+    font-size: 3.2rem;
+    color: #333;
+    text-align: center;
+    display: block;
+}
+
+
+.mess-box--ss {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+    z-index: 9999999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+    .mess-box--ss::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-color: rgba(0,0,0,0.4);
+        backdrop-filter: blur(.4rem);
+        -webkit-backdrop-filter: blur(.4rem);
+        -moz-backdrop-filter: blur(.4rem);
+    }
+
+.mess-box {
+    width: 50rem;
+    background-color: #fff;
+    border-radius: .5rem;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+}
+
+.mess-box--ss .status {
+    padding: 1rem 2.4rem;
+    border-bottom: .2rem solid #e9730c;
+    color: #333;
+    font-size: 2rem;
+    display: flex;
+    align-items: flex-end;
+}
+
+.mess-box--ss .st-ss {
+    border-bottom: .2rem solid #41d888;
+}
+
+.mess-box--ss .status ion-icon {
+    font-size: 3.2rem;
+    color: #e9730c;
+    margin-right: 1rem;
+}
+
+    .mess-box--ss .status ion-icon[name="checkbox"] {
+        color: #41d888;
+    }
+
+.mess-box--ss .content {
+    padding: 1.8rem 2.4rem;
+    color: #555;
+    font-size: 1.8rem;
+    border-bottom: .1rem solid #ddd;
+    line-height: 1.4;
+}
+
+
+.mess-box--ss .btn-s {
+    text-align: right;
+    padding: 1rem;
+}
+
+    .mess-box--ss .btn-s button {
+        font-size: 2rem;
+        padding: 1rem 1.6rem .8rem 1.6rem;
+        color: #fff;
+        background-color: #2455d3;
+        margin-right: 2rem;
+    }
+
+        .mess-box--ss .btn-s button:not(.cancl) {
+            text-transform: uppercase;
+            border-radius: .4rem;
+        }
+
+            .mess-box--ss .btn-s button:not(.cancl):hover {
+                background-color: #275ce6;
+            }
+
+        .mess-box--ss .btn-s button:not(.ok) {
+            color: #2455d3;
+            background-color: transparent;
+            padding: .1rem 0;
+            border-bottom: .2rem solid transparent;
+        }
+
+            .mess-box--ss .btn-s button:not(.ok):hover {
+                border-bottom: .2rem solid #2455d3;
+            }
+
+
+.price::after {
+    display: none !important;
+}

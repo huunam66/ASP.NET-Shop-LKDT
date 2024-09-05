@@ -1,0 +1,126 @@
+footer {
+  padding: 4.4rem 3.2rem;
+  background-color: #303036;
+  border-top: 1rem solid #eee;
+  position: relative;
+  z-index: 999999999;
+}
+
+footer .container{
+  max-width: 120rem;
+  margin: auto;
+}
+
+footer .container .grid-box{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 9.6rem;
+}
+
+
+footer .container .grid-item ul li .logo{
+  width: 6.4rem;
+  border-radius: 1.2rem;
+}
+
+footer .container .grid-item:first-child ul li:first-child{
+  margin-top: 0;
+}
+
+
+footer .container .grid-item ul{
+  list-style: none;
+}
+
+footer .container .grid-item ul li,
+footer .container .grid-item ul li a{
+  font-size: 1.6rem;
+  color: #eee !important;
+  letter-spacing: 0.1rem;
+}
+
+
+footer .container .grid-item ul li a:hover{
+  text-decoration: underline;
+  color: #c19554 !important;
+}
+
+footer .container .grid-item ul .nguoncamhung{
+  line-height: 1.6;
+}
+
+footer .container .grid-item ul .nguoncamhung a{
+  text-decoration: none !important;
+  color: #f1d6ad !important;
+  border-bottom: 1px solid #f1d6ad;
+}
+
+
+footer .container .grid-item ul .nguoncamhung a:hover{
+  color: #c19554 !important;
+  border-bottom-color: #c19554;
+}
+
+
+footer .container .grid-item ul li{
+  margin: 2rem 0;
+}
+
+footer .container .grid-item:last-child ul li{
+  color: #f1d6ad !important;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #f1d6ad;
+}
+
+footer .container .grid-item ul li:last-child figure{
+  margin: 1.8rem 0;
+}
+
+footer .container .grid-item ul li:last-child figure a{
+  display: inline-flex;
+  align-items: center;
+}
+
+footer .container .grid-item ul li:last-child figure:nth-child(1) a i{
+  color: #0777e9;
+}
+
+footer .container .grid-item ul li:last-child figure:nth-child(2) a i{
+  background: #d6249f;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+footer .container .grid-item ul li:last-child figure a i{
+  font-size: 3.2rem;
+  margin-left: 1rem;
+}
+
+
+
+footer .container .grid-item ul li figure a{
+  color: #eee !important;
+  text-decoration: none !important;
+  font-size: 1.4rem;
+}
+
+
+footer .container .grid-item .tit{
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #eee;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  margin-bottom: 2rem;
+}
+
+footer .container .grid-item .tit::after{
+  display: block !important;
+  content: "";
+  width: 20%;
+  padding: 0.1rem;
+  background-color: #eee;
+  margin: 2rem 0;
+}

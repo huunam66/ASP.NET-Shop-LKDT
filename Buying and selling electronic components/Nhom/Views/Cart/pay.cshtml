@@ -1,0 +1,129 @@
+﻿@using Nhom.Models.LINQ
+@model List<GIO_HANG>
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.At_Sign = "@";
+    List<HINH_ANH> aSSESTs = ViewBag.assests;
+    List<String> price_format = ViewBag.price_format;
+    List<String> price_total = ViewBag.price_total;
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/Content/css/cart.css?v=1224222" />
+}
+
+@section Scripts{
+    <script async defer src="~/Content/js/cart.js?v=123"></script>
+    <script async defer src="~/Content/js/prodisw.js?v=2312"></script>
+}
+
+<div class="cart-cont">
+    <h2 class="tit-cart">
+        <i class='bx bx-cart-add'></i>
+        Đặt hàng
+    </h2>
+
+    <form class="layout-child">
+        <div class="lay-right">
+            <div class="inf">
+                <div class="fn-ln-d">
+                    <p class="fn-ln">
+                        <label class="required-flex">Họ:</label>
+                        <input type="text" name="last-name" placeholder="Nhập họ" />
+                    </p>
+                    <p class="fn-ln">
+                        <label class="required-flex">Tên:</label>
+                        <input type="text" name="first-name" placeholder="Nhập tên" />
+                    </p>
+                </div>
+                <p class="row-f">
+                    <label class="required-flex">Số điện thoại:</label>
+                    <input type="tel" name="phone" placeholder="Nhập số điện thoại" />
+                </p>
+                <p class="row-f">
+                    <label class="required-flex">Giới tính:</label>
+                    <select name="gender">
+                        <option value="#">Chọn</option>
+                        <option value="Nam">Nam</option>
+                        <option value="Nữ">Nữ</option>
+                    </select>
+                </p>
+                <p class="row-f">
+                    <label class="required-flex">Tỉnh/Thành:</label>
+                    <select name="city" class="provinces">
+                        <option value="#">Chọn</option>
+                    </select>
+                </p>
+                <p class="row-f">
+                    <label class="required-flex">Quận/Huyện:</label>
+                    <select name="district" class="districts">
+                        <option value="#">Chọn</option>
+                    </select>
+                </p>
+                <p class="row-f">
+                    <label class="required-flex">Phường/Xã:</label>
+                    <select name="ward" class="wards">
+                        <option value="#">Chọn</option>
+                    </select>
+                </p>
+                <p class="row-f">
+                    <label class="required-flex">Địa chỉ:</label>
+                    <input type="text" name="home-number" placeholder="Nhập địa chỉ" />
+                </p>
+            </div>
+            <p class="sum-cout">
+                <span class="tip-lf">Tổng số sản phẩm:</span>
+                <span class="rest-rt">@ViewBag.sum_count</span>
+            </p>
+            <p class="sum-cout">
+                <span class="tip-total-mon-lf">Tổng thành tiền:</span>
+                <span class="total-mon-rt pri">@ViewBag.total</span>
+            </p>
+
+            <p class="btn-buy">
+                <button name="ac-pay" type="button">
+                    <i class='bx bxl-paypal'></i>
+                    Mua hàng
+                </button>
+            </p>
+        </div>
+
+        <div id="cart-pay" class="lay-left">
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <div class="item">
+
+                    <div class="pic">
+                        <img src="~/Content/img/@aSSESTs[i].THU_MUC/@aSSESTs[i].TEN_FILE" />
+                    </div>
+
+                    <div class="top">
+                        <div class="top-content">
+                            <p class="name-site">
+                                <a href="#" class="name id" id-set="@Model[i].SAN_PHAM_ID">@Model[i].SAN_PHAM.TEN</a>
+                                <span class="type">@Model[i].SAN_PHAM.MAU</span>
+                                <span class="in-stock">@Model[i].SAN_PHAM.TRANG_THAI</span>
+                            </p>
+                            <p class="price">
+                                <span class="tit">Đơn giá</span>
+                                <span class="pri dg" data-price="@Model[i].SAN_PHAM.GIA">@price_format[i]</span>
+                            </p>
+                            <p class="counter">
+                                <span class="tit">Số lượng</span>
+                                <input type="number" name="soluong" min="1" max="@Model[i].SAN_PHAM.SO_LUONG" value="@Model[i].SO_LUONG">
+                            </p>
+                            <p class="total">
+                                <span class="tit">Tổng tiền</span>
+                                <span class="pri">@price_total[i]</span>
+                            </p>
+                        </div>
+                        <div class="btn-are">
+                            <button class="del-item" type="button" id-set="@Model[i].SAN_PHAM_ID">Xóa bỏ</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </form>
+</div>

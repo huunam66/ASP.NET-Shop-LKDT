@@ -1,0 +1,136 @@
+
+
+.template .box{
+  display: flex;
+  align-items: flex-start;
+  margin-top: 2rem;
+  height: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+}
+
+main{
+  width: 120rem;
+  max-width: 100%;
+  margin: auto;
+  padding: 0 2.8rem;
+}
+
+main .container{
+  width: 100%;
+  padding: 1.4rem !important;
+  box-sizing: border-box;
+  margin: auto;
+}
+
+main .container .row-t-ops,
+main .container .row-t-t{
+  margin-bottom: 2rem;
+}
+
+main .container .row-t-t .t-t{
+  font-size: 1.4rem;
+  color: #333 !important;
+  margin-bottom: 2rem;
+}
+
+main .container .row-t-t .t-t a:first-child{
+  color: #888 !important;
+}
+
+main .container .row-t-t .t-h{
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+
+main .container .row-t-ops .t-opts{
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: .4rem;
+}
+
+main .container .row-t-ops .t-opts .item{
+  cursor: pointer;
+  position: relative;
+  border-radius: .4rem 0 0 .4rem;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+main .container .row-t-ops .t-opts .item:last-child{
+  border-radius: 0 .4rem .4rem 0;
+}
+
+main .container .row-t-ops .t-opts .item:hover{
+  background-color: #eee;
+}
+
+main .container .row-t-ops .t-opts .item .fill{
+  display: flex;
+  align-items: center;
+  color: #555;
+  padding: 1.2rem;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+
+main .container .row-t-ops .t-opts .item .fill i{
+  font-size: 1.8rem !important;
+  margin-right: .4rem;
+}
+
+main .container .row-t-ops .t-opts .item:last-child .fill i{
+  margin: 0;
+  margin-left: .4rem;
+}
+
+main .container .row-t-ops .t-opts .item .fill span{
+  font-weight: 500;
+  color: #333 !important;
+}
+
+main .container .row-t-ops .t-opts .item ol{
+  position: absolute;
+  top: calc(100% + 1.8rem);
+  background-color: #fff;
+  border-radius: .4rem;
+  z-index: 99999;
+  box-shadow: 
+  rgba(0, 0, 0, 0.07) 0px 1px 1px, 
+  rgba(0, 0, 0, 0.07) 0px 2px 2px, 
+  rgba(0, 0, 0, 0.07) 0px 4px 4px, 
+  rgba(0, 0, 0, 0.07) 0px 8px 8px, 
+  rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+main .container .row-t-ops .t-opts .item:last-child ol{
+  right: 0;
+}
+
+main .container .row-t-ops .t-opts .item ol li{
+  margin: .2rem 0;
+}
+
+main .container .row-t-ops .t-opts .item ol li:hover{
+  background-color: #eee;
+}
+
+main .container .row-t-ops .t-opts .item ol li a{
+  display: flex;
+  min-width: 100%;
+  white-space: nowrap;
+  font-size: 1.6rem;
+  padding: .8rem 1rem;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+main .container .row-t-ops .t-opts .item ol li a input{
+  width: 1.6rem;
+  margin-right: .8rem;
+  pointer-events: none;
+}

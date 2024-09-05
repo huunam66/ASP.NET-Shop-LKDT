@@ -1,0 +1,73 @@
+﻿@using Nhom.Models.LINQ
+@model THONG_TIN_TAI_KHOAN
+@{
+    ViewBag.Title = "Trang cá nhân";
+    ViewBag.At_Sign = "@";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    String EMAIL = ViewBag.EMAIL;
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/Content/css/profile.css" />
+}
+
+@section Scripts{
+}
+
+
+<div class="profile">
+    <p class="top-f">
+        <a href="/home" class="link link-bl">Trang chủ</a>
+        /
+        <a href="/profile" class="link">Thông tin cá nhân</a>
+    </p>
+
+    <div class="box-pf">
+        <div class="avt-s">
+            <div class="pic">
+                <img class="avt" src="~/Content/img/avt/@Model.ANH_DAI_DIEN">
+            </div>
+            <p class="name">@(Model.HO + " " + Model.TEN)</p>
+            <p class="email">@EMAIL</p>
+        </div>
+
+        <div class="inf">
+            <p class="row-f">
+                <span class="title-lf">Họ tên:</span>
+                <span class="result-rt">@(Model.HO + " " + Model.TEN)</span>
+            </p>
+            <p class="row-f">
+                <span class="title-lf">Số điện thoại:</span>
+                <span class="result-rt">@Model.SDT</span>
+            </p>
+            <p class="row-f">
+                <span class="title-lf">Email:</span>
+                <span class="result-rt">@EMAIL</span>
+            </p>
+            <p class="row-f">
+                <span class="title-lf">Giới tính:</span>
+                <span class="result-rt">@Model.GIOI_TINH</span>
+            </p>
+            <p class="row-f">
+                <span class="title-lf">Địa chỉ:</span>
+                <span class="result-rt">@Model.DIA_CHI</span>
+            </p>
+            <p class="row-f">
+                <span class="title-lf">Phường/Xã:</span>
+                <span class="result-rt">@Model.PHUONG_XA</span>
+            </p>
+            <p class="row-f">
+                <span class="title-lf">Quận/Huyện:</span>
+                <span class="result-rt">@Model.QUAN_HUYEN</span>
+            </p>
+            <p class="row-f">
+                <span class="title-lf">Tỉnh/Thành:</span>
+                <span class="result-rt">@Model.TINH_THANH</span>
+            </p>
+
+            <p class="opt-ev">
+                <a href="/profile/edit" class="btn edit">Chỉnh sửa</a>
+            </p>
+        </div>
+    </div>
+</div>

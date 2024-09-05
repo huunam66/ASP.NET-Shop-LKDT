@@ -1,0 +1,465 @@
+header{
+  position: relative;
+  padding: 1rem 3.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99999999999;
+  background-color: #fff;
+}
+
+.logo{
+  width: 6.4rem;
+  border-radius: 1.2rem;
+}
+
+.d-none{
+  display: none;
+}
+
+.nav-list{
+  display: flex;
+  list-style: none;
+}
+
+.nav-list .nav-item{
+  margin: 1.2rem;
+  position: relative;
+}
+
+.s-log .log .go a,
+.nav-list .nav-item a{
+  display: flex;
+  font-size: 1.8rem;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.nav-list .nav-item a:hover{
+  text-decoration: underline;
+}
+
+
+.s-log .log .go a:hover,
+.nav-list .nav-item a:hover{
+  color: #b17a29;
+}
+
+
+.nav-list .nav-item a .down-ic{
+  margin-left: 0.2rem;
+}
+
+.nav-list .nav-item .prod{
+  position: absolute;
+  top: 100%;
+  list-style: none;
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  background-color: #eee;
+}
+
+.nav-list .nav-item .prod .prod--item{
+  border-top: 1px solid #fcf5eb;
+}
+
+.nav-list .nav-item .prod .prod--item:first-child{
+  border: none;
+}
+
+
+.nav-list .nav-item .prod .prod--item a{
+  display: block;
+  padding: 1rem 1.6rem;
+  text-transform: none !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.1rem;
+  width: 15rem;
+  z-index: 9999999;
+}
+
+.nav-list .nav-item .prod .prod--item a:hover{
+  background-color: #fcf5eb;
+  text-decoration: none !important;
+}
+
+.s-log{
+  display: flex;
+  align-items: center;
+}
+
+.s-log .s{
+  position: relative;
+  margin: 1rem;
+}
+
+.s-log .s .c-in{
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding: 0.2rem;
+  background-color: #f1d6ad;
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+}
+
+.d-flex{
+  display: flex;
+}
+
+.s-log .s .c-in{
+  align-items: center;
+}
+
+.s-log .s .c-in input{
+  width: 24rem;
+  padding: 0.6rem 0.8rem;
+  font-size: 1.8rem;
+  color: #555;
+  border: none;
+  outline: none;
+  letter-spacing: 0.1rem;
+  background-color: #eee;
+  padding-right: 4.4rem;
+}
+
+.s-log .s .c-in ion-icon{
+  font-size: 3.2rem;
+  color: #555;
+  cursor: pointer;
+}
+
+
+.s-log .s button{
+  border: none;
+  background-color: transparent;
+}
+
+.s-log .cart-ic ion-icon,
+.s-log .log .us ion-icon,
+.s-log .s .btn-ops{
+  cursor: pointer;
+  font-size: 3.2rem;
+  color: #b17a29;
+  padding: 0.8rem;
+  border: 2px solid #b17a29;
+  border-radius: 5rem;
+  z-index: 9999;
+}
+
+.s-log .cart-ic ion-icon:hover,
+.s-log .log .us ion-icon:hover,
+.s-log .s ion-icon:hover{
+  background-color: #b17a29;
+  color: #fff;
+}
+
+
+.s-log .s .c-in button{
+  border: none;
+  font-size: 1.8rem;
+  color: #555;
+  position: absolute;
+  right: 3.2rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0 0.6rem;
+  cursor: pointer;
+  height: 100%;
+  background-color: #eee;
+  z-index: 9;
+}
+
+.s-log .s .c-in button:hover{
+  background-color: #555;
+  color: #eee;
+}
+
+.s-log .cart-ic{
+  margin: 1rem;
+  position: relative;
+}
+
+.s-log .cart-ic span{
+  color: #fff;
+  background-color: #333;
+  width: 2.8rem;
+  height: 2.8rem;
+  text-align: center;
+  line-height: 2.8rem;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  position: absolute;
+  top: -0.3rem;
+  left: -1.8rem;
+}
+
+.s-log .log{
+  list-style: none;
+  position: relative;
+}
+
+.s-log .log .us{
+  margin: 1rem;
+}
+
+.s-log .log .go {
+  position: absolute;
+  right: 0;
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+}
+
+.s-log .log .go a{
+  display: block;
+  width: 12rem;
+  padding: 1rem 1.2rem;
+  font-size: 1.8rem;
+  text-transform: none;
+  border-top: 1px solid #fcf5eb;
+  background-color: #eee;
+}
+
+.s-log .log .go a:first-child{
+  border: none;
+}
+
+.s-log .log .go a:hover{
+  background-color: #fcf5eb;
+  text-decoration: none !important;
+}
+
+.cart{
+  position: fixed !important;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, .4);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cart .box{
+  width: 40rem;
+  position: absolute;
+  right: -111%;
+  top: 0;
+  bottom: 0;
+  background-color: #fff;
+  padding: 1rem;
+  z-index: 99999999;
+  
+}
+
+.cart .box .list-pr .c-b{
+  margin-right: .5rem;
+}
+
+.cart .tit-t{
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.cart .tit-t .tit{
+  font-size: 2rem !important;
+  text-decoration: underline;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.cart .tit-t .tit::after{
+  content: "";
+  display: block;
+  width: 10%;
+  background-color: #ebebeb;
+  border-top: .3rem solid #eee;
+  margin: 2rem auto;
+}
+
+
+.cart .tit-t .tit{
+  font-size: 1.8rem;
+  color: #333;
+  letter-spacing: 0.1rem;
+}
+
+.cart .tit-t .c-empty{
+  font-size: 1.8rem;
+}
+
+.cart .cart-list .list-pr{
+  list-style: none;
+  overflow: auto;
+  position: absolute;
+  top: 12rem;
+  bottom: 5rem;
+  border-top: .1rem solid #eee;
+  border-bottom: .1rem solid #eee;
+}
+
+.cart .cart-list .list-pr .pr-item{
+  padding: 1rem;
+  padding-right: 5rem;
+  margin: 1rem 0;
+  position: relative;
+  border-bottom: .1rem solid #eee;
+}
+
+.cart .cart-list .list-pr .pr-item .del-pr{
+  color: #fff;
+  font-size: 1.2rem;
+  padding: .1rem .6rem;
+  background-color: #b17a29;
+  position: absolute;
+  top: 0;
+  right: 1.4rem;
+  cursor: pointer;
+}
+
+.cart .cart-list .list-pr .pr-item .del-pr:hover{
+  background-color: rgba(177, 122, 41, 0.8);
+}
+
+.cart .cart-list .list-pr .pr-item figure img{
+  width: 25%;
+}
+
+.cart .cart-list .list-pr .pr-item figure {
+  display: flex;
+  align-items: center;
+}
+
+.cart .cart-list .list-pr .pr-item figure .right{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 1rem;
+}
+
+.cart .cart-list .list-pr .pr-item figure .right .name-pr{
+  width: 100%;
+  line-break: anywhere;
+  font-size: 1.6rem;
+  max-height: 4rem;
+  line-height: 1.1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.cart .cart-list .list-pr .pr-item figure .right .price-cou{
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.cart .cart-list .list-pr .pr-item figure .right .num-pr{
+  width: 5rem;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.cart .cart-list .list-pr .pr-item figure .right .price-cou span:first-child{
+  color: #b17a29;
+}
+
+.cart .cart-list .list-pr .pr-item figure .right .price-cou span:first-child::after{
+  content: "đ";
+  margin-left: .5rem;
+  text-decoration: underline;
+}
+
+.cart .cart-list .list-pr .pr-item figure .right .price-cou span{
+  font-size: 1.4rem;
+}
+
+.cart .cart-list .list-pr .pr-item figure .right .price-cou span input{
+  color: #b17a29;
+  border: 1px solid #eee;
+  outline: none;
+}
+
+.cart .price-buy{
+  background-color: #fff;
+  width: calc(100% - 2rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  padding: 1.5rem 0;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+}
+
+.cart .price-buy button{
+  background-color: #333;
+  color: #fff;
+  font-size: 1.8rem;
+  padding: .5rem 2rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.cart .rmv-cb{
+  font-size: 1.2rem;
+  background-color: #c73030;
+  color: #fff;
+  cursor: pointer;
+  padding: .2rem 1rem;
+  margin-left: 1rem;
+}
+
+.cart .rmv-cb:hover{
+  background-color: rgba(215, 65, 65, 0.8);
+}
+
+.cart .all-cb:hover,
+.cart .price-buy button:hover{
+  background-color: #444;
+}
+
+.cart .total-pri{
+  font-size: 2.4rem;
+  color: #b17a29;
+  position: relative;
+}
+
+.cart .total-pri::after{
+  content: "đ";
+  font-size: 2rem;
+  text-decoration: underline;
+  margin-left: .6rem;
+  position: absolute;
+  top: -.6rem;
+}
+
+.cart .all-cb{
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #333;
+  padding: .2rem 1rem;
+  cursor: pointer;
+}
+
+.box .close{
+  font-size: 3.2rem;
+  color: #333;
+  position: absolute;
+  cursor: pointer;
+}
+
+.open{
+  opacity: 1;
+  z-index: 9999999999;
+}
+
+.open .box{
+  animation: ani-open-cart .7s ease-out forwards;
+}

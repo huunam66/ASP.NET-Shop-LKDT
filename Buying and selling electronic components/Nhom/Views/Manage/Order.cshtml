@@ -1,0 +1,147 @@
+﻿@using Nhom.Models.LINQ
+@model List<DON_HANG>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.At_Sign = "@";
+    List<String> format_prices = ViewBag.format_prices;
+    List<DON_HANG> bILLs = Model;
+}
+
+@section Styles{
+
+    <link rel="stylesheet" href="~/Content/css/order.css?v=222" />
+}
+
+@section Scripts{
+    <script async defer src="~/Content/js/order.js?v=12"></script>
+
+}
+
+<div class="order-box">
+    <form class="f-opt" method="get" action="/manage/order">
+        <button type="submit" class="dnone"></button>
+        <div class="type-opt-or opt-or">
+            <select name="type" title="Lọc">
+                <option value="0" @(ViewBag.type == 0 ? "selected" : null)>Tất cả</option>
+                <option value="1" @(ViewBag.type == 1 ? "selected" : null)>Đơn chưa duyệt</option>
+                <option value="2" @(ViewBag.type == 2 ? "selected" : null)>Đơn đã duyệt</option>
+                <option value="3" @(ViewBag.type == 3 ? "selected" : null)>Đơn hủy</option>
+            </select>
+        </div>
+        <div class="sp-opt-or opt-or">
+            <select name="sp" title="Sắp xếp">
+                <option value="0" @(ViewBag.sp == 0 ? "selected" : null)>Mặc định</option>
+                <option value="1" @(ViewBag.sp == 1 ? "selected" : null)>Tăng theo tổng tiền</option>
+                <option value="2" @(ViewBag.sp == 2 ? "selected" : null)>Giảm theo tổng tiền</option>
+                @if (ViewBag.type == 1)
+                {
+                    <option value="3" @(ViewBag.sp == 3 ? "selected" : null)>Tăng theo ngày đặt</option>
+                    <option value="4" @(ViewBag.sp == 4 ? "selected" : null)>Giảm theo ngày đặt</option>
+                }
+                @if (ViewBag.type == 2)
+                {
+                    <option value="3" @(ViewBag.sp == 3 ? "selected" : null)>Tăng theo ngày duyệt</option>
+                    <option value="4" @(ViewBag.sp == 4 ? "selected" : null)>Giảm theo ngày duyệt</option>
+                }
+                @if (ViewBag.type == 3)
+                {
+                    <option value="3" @(ViewBag.sp == 3 ? "selected" : null)>Tăng theo ngày hủy</option>
+                    <option value="4" @(ViewBag.sp == 4 ? "selected" : null)>Giảm theo ngày hủy</option>
+                }
+            </select>
+        </div>
+        @{
+            if (ViewBag.type == 0)
+            {
+                <p class="check-f">@ViewBag.count_chuaduyet/@ViewBag.count_bill đơn cần được duyệt</p>
+            }
+            if (ViewBag.type == 1)
+            {
+                <p class="check-f">@ViewBag.count_bill đơn cần được duyệt</p>
+            }
+            if (ViewBag.type == 2)
+            {
+                <p class="check-f">@ViewBag.count_bill đơn đã duyệt</p>
+            }
+            if (ViewBag.type == 3)
+            {
+                <p class="check-f">@ViewBag.count_bill đơn bị hủy</p>
+            }
+        }
+    </form>
+    <div class="tab">
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Mã đơn</th>
+                    <th>Ngày đặt hàng</th>
+                    <th>Tổng sản phẩm</th>
+                    <th>Tổng thanh toán</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @for (int i = 0; i < bILLs.Count; i++)
+                {
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td>@bILLs[i].ID</td>
+                        <td>@(((DateTime)bILLs[i].NGAY_DAT_HANG).ToString("dd/MM/yyyy"))</td>
+                        <td>@bILLs[i].TONG_SAN_PHAM</td>
+                        <td class="price">@format_prices[i]</td>
+                        <td class="opt-cl">
+                            <a href="/manage/order_detail/@bILLs[i].ID">Chi tiết</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @if (ViewBag.pages > 1)
+    {
+        String type = ViewBag.type > 0 ? "&type=" + ViewBag.type : null;
+        String sp = ViewBag.sp > 0 ? "&sp=" + ViewBag.sp : null;
+        <div class="f-opt page">
+            @if (ViewBag.page > 1)
+            {
+                <a class="prev-page" 
+                   href="/manage/order?page=@(ViewBag.page - 1)@type@sp">Trước</a>
+            }
+
+            @{
+                int show_opt_page = 4;
+                if (ViewBag.page >= show_opt_page && ViewBag.page <= ViewBag.pages)
+                {
+                    for (int i = ViewBag.page - (show_opt_page - 1); i < ViewBag.page + 1; i++)
+                    {
+                        <a 
+                            class="page-on @(ViewBag.page == i ? "current-page" : null)" 
+                            href="/manage/order?page=@i@type@sp">
+                            @i
+                        </a>
+                    }
+                }
+                else
+                {
+                    show_opt_page = ViewBag.pages < show_opt_page ? (int)ViewBag.pages : show_opt_page;
+                    for (int i = 1; i <= show_opt_page; i++)
+                    {
+                        <a class="page-on  @(ViewBag.page == i ? "current-page" : null)" 
+                            href="/manage/order?page=@i@type@sp">
+                            @i
+                        </a>
+                    }
+                }
+            }
+
+            @if (ViewBag.page < ViewBag.pages)
+            {
+                <a class="next-page" href="/manage/order?page=@(ViewBag.page + 1)@type@sp">Tiếp</a>
+            }
+        </div>
+    }
+</div>
+

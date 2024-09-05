@@ -1,0 +1,39 @@
+﻿@using Nhom.Models.LINQ
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutPage_Log.cshtml";
+}
+
+
+<form action="~/Login" method="post">
+    <div class="f-cont">
+        <p class="t">đăng nhập thông tin</p>
+        @if (ViewBag.Err_log != null)
+        {
+            <p style="font-size: 1.4rem; color: red; text-align: center; margin-bottom: 1rem">@ViewBag.Err_log</p>
+        }
+
+        @if (ViewBag.dangkythanhcong != null)
+        {
+            <p style="font-size: 1.4rem; color: green; text-align: center; margin-bottom: 1rem">@ViewBag.dangkythanhcong</p>
+        }
+        <div class="f-log">
+            <div class="lb-t">
+                <label for="">tên tài khoản:</label>
+                <input type="text" name="Us" />
+            </div>
+            <div class="lb-t">
+                <label for="">mật khẩu:</label>
+                <input type="password" name="Pw" />
+                <i class="ph ph-eye"></i>
+                <!-- <i class="ph ph-eye-slash"></i> -->
+            </div>
+            <a href="#" class="fg">Quên mật khẩu</a>
+        </div>
+    </div>
+    <div class="bt">
+        <a href="~/Register">Đăng ký</a>
+        <button type="submit">Đăng nhập</button>
+    </div>
+</form>
+

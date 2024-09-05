@@ -1,0 +1,322 @@
+.layout .layout .more{
+  text-align: right;
+  margin-bottom: 2rem;
+}
+.layout .ad-add-more{
+  line-height: 1;
+  padding: 1.4rem 2rem;
+  font-size: 2rem;
+  color: #fff !important;
+  font-weight: 500;
+  background-color: #275ce6;
+  border-radius: 5rem;
+  width: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+}
+
+.layout .ad-add-more:hover{
+  background-color: #234ebd;
+}
+
+
+td:nth-child(2),
+th:nth-child(2){
+  min-width: 10rem !important;
+}
+
+td:nth-child(1){
+  text-align: center;
+}
+
+
+.pics{
+  width: 35%;
+  max-height: 100%;
+}
+
+
+.st{
+  position: sticky;
+  background-color: #fff;
+  left: 0;
+  z-index: 9999;
+}
+
+.st-th{
+  background-color: #275ce6;
+  z-index: 99999;
+}
+
+.st-1{
+  left: 16rem;
+}
+
+.st-2{
+  left: 26rem;
+}
+
+td:not(.name), th:not(.name){
+  min-width: 16rem;
+}
+
+.name{
+  min-width: 32rem;
+}
+
+td{
+  height: 6rem;
+}
+
+tr {
+    border-bottom: .1rem solid #ddd !important;
+}
+
+
+.layout {
+    margin: auto;
+    width: 130rem;
+    padding: 1.6rem;
+    border-radius: 1rem;
+    background-color: #fff;
+    margin-bottom: 4.4rem;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+}
+
+.page-off .cont form p,
+.page-off {
+  margin: 0 !important;
+}
+
+.box-table{
+  height: 55vh;
+  overflow: auto;
+  margin-bottom: 3.2rem;
+}
+
+table{
+  font-size: 1.6rem;
+  width: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  max-height: 100%;
+  background-color: #fff;
+}
+
+table thead{
+  background-color: #275ce6;
+  color: #fff;
+  position: sticky;
+  top: -.1rem;
+  left: 0;
+  z-index: 99999;
+}
+
+.ops{
+  text-align: center;
+}
+
+.fix, .del{
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.fix img, .del img{
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+
+.layout .more{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;    
+  margin-bottom: 1.4rem;
+}
+
+.layout .more form select{
+  padding: .4rem 1rem;
+  border-bottom: .2rem solid #eee;
+  font-size: 1.6rem;
+  width: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+}
+
+.layout .more form select option{
+  font-size: 1.6rem;
+  width: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+}
+
+.layout .more .search-p{
+  position: relative;
+  width: 40%;
+  line-height: 1;
+  margin: auto;
+}
+
+.layout .more input[name=search]{
+  width: 100%;
+  padding: .4rem 1rem;
+  border-bottom: .2rem solid #eee;
+  font-size: 1.6rem;
+  padding-right: 4rem;
+}
+
+.layout .more .search-p ion-icon[name=search]{
+  position: absolute;
+  width: 3rem;
+  padding: .4rem;
+  top: 45%;
+  transform: translateY(-50%);
+  right: 0;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+
+.layout .more .search-p ion-icon[name=search]:hover{
+  color: #fff;
+  background-color: #333;
+}
+
+.mess-box--ss{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* width: 100%; */
+  /* height: 100vh; */
+  z-index: 9999999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.mess-box--ss::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: rgba(0,0,0,0.4);
+  backdrop-filter: blur(.4rem);
+  -webkit-backdrop-filter: blur(.4rem);
+  -moz-backdrop-filter: blur(.4rem);
+}
+
+.mess-box{
+  width: 50rem;
+  background-color: #fff;
+  border-radius: .5rem;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+}
+
+.mess-box--ss .status{
+  padding: 1rem 2.4rem;
+  border-bottom: .2rem solid #e9730c;
+  color: #333;
+  font-size: 2rem;
+  display: flex;
+  align-items: flex-end;
+}
+
+.mess-box--ss .st-ss{
+  border-bottom: .2rem solid #41d888;
+}
+
+.mess-box--ss .qs-del{
+  border-bottom: .2rem solid #1d5ec3;
+}
+
+.mess-box--ss .st-fail{
+  border-bottom: .2rem solid #fc0005;
+}
+
+.mess-box--ss .status ion-icon{
+  font-size: 3.2rem;
+  color: #e9730c;
+  margin-right: 1rem;
+}
+
+.mess-box--ss .status ion-icon[name="checkbox"]{
+  color: #41d888;
+}
+
+.mess-box--ss .status ion-icon[name="help-circle"]{
+  
+  color: #1d5ec3;
+}
+
+.mess-box--ss .status ion-icon[name="bug"]{
+
+  color:  #fc0005;
+}
+
+.mess-box--ss .content{
+  padding: 1.8rem 2.4rem;
+  color: #555;
+  font-size: 1.8rem;
+  border-bottom: .1rem solid #ddd;
+  line-height: 1.4;
+}
+
+.mess-box--ss .content span{
+  border-bottom: .2rem solid #555 !important;
+  color: #fc0005;
+}
+
+.mess-box--ss .content span[name=del-ss]{
+  border-bottom: .2rem solid #555 !important;
+  color: #41d888;
+}
+
+.mess-box--ss .content span[name=qs-qs  ]{
+  border-bottom: .2rem solid #555 !important;
+  color: #1d5ec3;
+}
+
+.mess-box--ss .btn-s{
+  text-align: right;
+  padding: 1rem;
+}
+
+.mess-box--ss .btn-s button,
+.mess-box--ss .btn-s a[name=ok]{
+  font-size: 2rem;
+  padding: 1rem 1.6rem .8rem 1.6rem;
+  color: #fff;
+  background-color: #2455d3;
+  margin-right: 2rem;
+}
+
+.mess-box--ss .btn-s a[name=ok]{
+  color: #fff !important;
+}
+
+.mess-box--ss .btn-s a[name=ok],
+.mess-box--ss .btn-s button:not(.cancl){
+  text-transform: uppercase;
+  border-radius: .4rem;
+}
+
+
+.mess-box--ss .btn-s a[name=ok]:hover,
+.mess-box--ss .btn-s button:not(.cancl):hover{
+  background-color: #275ce6 !important;
+}
+
+.mess-box--ss .btn-s button:not(.ok){
+  color: #fc0005;
+  background-color: transparent;
+  padding: .1rem 0;
+  border-bottom: .2rem solid transparent;
+}
+
+.mess-box--ss .btn-s button:not(.ok):hover{
+  border-bottom: .2rem solid #fc0005;
+}

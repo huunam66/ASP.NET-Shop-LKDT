@@ -1,0 +1,150 @@
+﻿@using Nhom.Models.LINQ
+@model SAN_PHAM
+
+@{
+    SAN_PHAM p = Model;
+    List<String> pics = ViewBag.pic;
+    List<SAN_PHAM> brother = ViewBag.attr;
+    List<CHI_TIET_SAN_PHAM> attributes = ViewBag.attributes;
+
+    ViewBag.Title = p.TEN;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.At_Sign = "@";
+}
+
+@section Styles{
+
+    <link rel="stylesheet" href="~/Content/css/detail-prod.css?v=122" />
+}
+
+@section Scripts{
+    <script async defer src="~/Content/js/detail-prod.js?v=2154"></script>
+
+}
+
+<section>
+    <div class="cpnent">
+        <p class="t">
+            <a href="~/">
+                <span>Trang chủ</span>
+            </a>
+            &nbsp;/&nbsp;
+            <a href="~/Product">
+                <span>Sản phẩm</span>
+            </a>
+            &nbsp;/&nbsp;
+            <a href="~/@ViewBag.controller">
+                <span>@p.LOAI_SAN_PHAM.TEN</span>
+            </a>
+            &nbsp;/&nbsp;
+            <a href="~/Product/Details?sp=@p.ID">
+                <span class="cl-333">@p.TEN</span>                                                                                                             
+            </a>
+        </p>
+        <div class="grid-box">
+            <div class="grid-item">
+                <div class="img-pos">
+                    <div class="img-big">
+                        <picture>
+                            <img src="~/Content/img/@pics[0]"
+                                 alt="" loading="lazy"/>
+                        </picture>
+                    </div>
+                    <ul class="list-img">
+                        @{
+                            String first = "bdr-1-2455d3";
+                            if (pics != null && pics.Count > 0)
+                            {
+                                foreach (String pic in pics)
+                                {
+                                    <li class="@first">
+                                        <picture>
+                                            <img src="~/Content/img/@pic"
+                                                    alt=""  loading="lazy"/>
+                                        </picture>
+                                    </li>
+                                            first = "";
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="grid-item">
+                <p class="name-sp">
+                    @p.TEN
+                </p>
+                <p class="price">@ViewBag.Format_Price</p>
+                <div class="list-model">
+                    @{
+                        String cl = "";
+                        foreach (SAN_PHAM pr in brother)
+                        {
+                            if (!pr.MAU.Equals(""))
+                            {
+                                if (pr.ID == p.ID)
+                                {
+                                    cl = "select-attr";
+                                }
+                                <a href="~/Product/Details?sp=@pr.ID" class="@cl">@pr.MAU</a>
+                                cl = "";
+                            }
+                        }
+                    }
+                </div>
+                @{
+                    TAI_KHOAN tk = (TAI_KHOAN)Session["User"];
+                    if (tk == null || tk != null && tk.QUYEN_HAN.ToLower().Equals("user"))
+                    {
+                        <button class="btn-add-cart" id-set="@Model.ID">
+                            <ion-icon name="cart"></ion-icon>
+                            Chọn mua
+                        </button>
+                    }
+                }
+
+                @{
+                    cl = p.TRANG_THAI != null && p.TRANG_THAI.Equals("Còn hàng") ? "cl-139327" : "";
+                }
+                <p class="status @cl">Sản phẩm hiện đang @p.TRANG_THAI</p>
+                <!-- <p class="status">Sản phẩm hiện đang hết hàng.</p> -->
+            </div>
+            <div class="grid-item">
+                <ul class="attributes">
+                    <li class="ti-top">thông số sản phẩm</li>
+                    <li class="attr-box">
+                        <ol class="attr-list">
+                            @{
+                                int len = attributes.Count;
+                                for (int i = 0; i < len; i++)
+                                {
+                                    cl = i % 2 != 0 ? "bg-eee" : "";
+                                    <li class="attr-item @cl">
+                                        <p>@attributes[i].TIEU_DE:</p>
+                                        <p>@attributes[i].NOI_DUNG</p>
+                                    </li>
+                                }
+                            }
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+            <div class="grid-item">
+                <h3 class="title-top-img">Hình @p.TEN</h3>
+                <ul class="list-bott">
+                    @foreach (String pic in pics)
+                    {
+                        <li>
+                            <picture>
+                                <img src="~/Content/img/@pic"
+                                     alt=""  loading="lazy"/>
+                            </picture>
+                            <p>@p.TEN</p>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
